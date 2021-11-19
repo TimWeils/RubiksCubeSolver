@@ -13,8 +13,12 @@ namespace RCSConsole
             for (int i = 0; i < c.sides.Count(); i++)
             {
                 Console.Write("This is ");
+                /*/
                 SetFGColor(c.sides[i].cPiece.thisSideC);
                 Console.Write(c.sides[i].cPiece.thisSideC);
+                /**/
+                SetFGColor(c.sides[i].pieces[5].Color);
+                Console.Write(c.sides[i].pieces[5].Color);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(" side of the cube:");
                 PrintSide(c.sides[i]);
@@ -24,6 +28,33 @@ namespace RCSConsole
 
         public static void PrintSide(Side s)
         {
+            PrintPiece(s.pieces[0].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[1].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[2].Color);
+
+            Console.WriteLine();
+            Console.WriteLine("---------");
+
+            PrintPiece(s.pieces[3].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[4].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[5].Color);
+
+            Console.WriteLine();
+            Console.WriteLine("---------");
+
+            PrintPiece(s.pieces[6].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[7].Color);
+            Console.Write(" | ");
+            PrintPiece(s.pieces[8].Color);
+
+            Console.WriteLine();
+
+            /*/
             PrintPiece(s.cPieces[0].thisSideC);
             Console.Write(" | ");
             PrintPiece(s.sPieces[0].thisSideC);
@@ -49,6 +80,7 @@ namespace RCSConsole
             PrintPiece(s.cPieces[3].thisSideC);
 
             Console.WriteLine();
+            /**/
         }
 
         private static void PrintPiece(Color pieceColor)

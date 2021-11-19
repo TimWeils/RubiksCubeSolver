@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RCSConsole
 {
-    enum Color { 
+    enum Color
+    { 
         Red,
         Green,
         Orange,

@@ -8,9 +8,14 @@ namespace RCSConsole
 {
     class Program
     {
+        // Reminder
+        // Vsechno by slo resit pouze R rotaci stacilo by vedet rozlozeni barevnych stran na 
+        // jehoz zaklade by slo spravne nastavit policka na Y a W stranach.
         static void Main(string[] args)
         {
             Cube cube = LoadSolvedCube();
+            //Moves.RotationX(cube);
+            Moves.F(cube);
             Print.PrintCube(cube);
             Console.ReadLine();
         }
@@ -22,6 +27,14 @@ namespace RCSConsole
             cube.topC = Color.Yellow;
             cube.frontC = Color.Red;
 
+            cube.sides[0] = CreateSolvedSideSide(Color.Red);
+            cube.sides[1] = CreateSolvedSideSide(Color.Green);
+            cube.sides[2] = CreateSolvedSideSide(Color.Orange);
+            cube.sides[3] = CreateSolvedSideSide(Color.Blue);
+            cube.sides[4] = CreateSolvedSideSide(Color.Yellow);
+            cube.sides[5] = CreateSolvedSideSide(Color.White);
+
+            /*/
             // Red side
             cube.sides[0] = CreateSolvedSideSide(Color.Red);
 
@@ -89,12 +102,21 @@ namespace RCSConsole
             wSide.cPiece = wCenter;
 
             cube.sides[5] = wSide;
+            /**/
 
             return cube;
         }
 
         private static Side CreateSolvedSideSide(Color sideColor)
         {
+            Side side = new Side();
+
+            for (int i = 0; i < 9; i++)
+            {
+                side.pieces[i] = new CubePiece(sideColor);
+            }
+
+            /*/
             Color leftSideC = Modulo.sColorMod(sideColor - 1);
             Color rightSideC = Modulo.sColorMod(sideColor + 1);
 
@@ -122,6 +144,7 @@ namespace RCSConsole
             side.sPieces[3] = side3;
 
             side.cPiece = center;
+            /**/
 
             return side;
         }

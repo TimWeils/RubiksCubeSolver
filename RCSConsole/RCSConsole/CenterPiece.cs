@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RCSConsole
 {
-    class CenterPiece : CubePiece
+    class CenterPiece
     {
         public Color thisSideC;
 

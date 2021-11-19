@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace RCSConsole
 {
-    interface CubePiece
+    class CubePiece
     {
+        private Color color;
+        public Color Color
+        {
+            get => color;
+        }
+
+        public CubePiece(Color color)
+        {
+            this.color = color;
+        }
     }
 }
