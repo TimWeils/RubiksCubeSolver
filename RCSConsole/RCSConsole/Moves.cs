@@ -29,7 +29,7 @@ namespace RCSConsole
             }
             else
             {
-                yL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
             }
         }
 
@@ -89,7 +89,7 @@ namespace RCSConsole
             }
             else
             {
-                yoL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
             }
         }
 
@@ -107,8 +107,8 @@ namespace RCSConsole
             }
 
             cube.sides[1].pieces[0] = p1;
-            cube.sides[1].pieces[0] = p2;
-            cube.sides[1].pieces[1] = p3;
+            cube.sides[1].pieces[1] = p2;
+            cube.sides[1].pieces[2] = p3;
 
             /*/
             CornerPiece tmpC1 = cube.sides[0].cPieces[0];
@@ -140,12 +140,12 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yL(cube, Modulo.sIntMod(cube.topC - 1), Modulo.sIntMod(cube.topC + 1));
+                yR(cube, Modulo.sIntMod(cube.topC + 1), Modulo.sIntMod(cube.topC - 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
             }
             else
             {
@@ -200,12 +200,12 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yoL(cube, Modulo.sIntMod(cube.topC - 1), Modulo.sIntMod(cube.topC + 1));
+                yoR(cube, Modulo.sIntMod(cube.topC + 1), Modulo.sIntMod(cube.topC - 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
             }
             else
             {
@@ -226,9 +226,9 @@ namespace RCSConsole
                 cube.sides[i].pieces[8] = cube.sides[i + 1].pieces[8];
             }
 
-            cube.sides[3].pieces[2] = p1;
-            cube.sides[3].pieces[3] = p2;
-            cube.sides[3].pieces[3] = p3;
+            cube.sides[3].pieces[6] = p1;
+            cube.sides[3].pieces[7] = p2;
+            cube.sides[3].pieces[8] = p3;
 
             /*/
             CornerPiece tmpC1 = cube.sides[0].cPieces[2];
@@ -254,9 +254,17 @@ namespace RCSConsole
             {
                 yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
             }
+            else if (cube.frontC == Color.Yellow)
+            {
+                yR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+            }
             else if (cube.topC == Color.White)
             {
-                yL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                yR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -271,25 +279,28 @@ namespace RCSConsole
 
         private static void yR(Cube cube, int frontSide, int backSide)
         {
+            int[] YCoordinates = GetYCoordinates(frontSide);
+            int[] WCoordinates = GetWCoordinates(frontSide);
+
             CubePiece p1 = cube.sides[frontSide].pieces[2];
             CubePiece p2 = cube.sides[frontSide].pieces[5];
             CubePiece p3 = cube.sides[frontSide].pieces[8];
 
-            cube.sides[frontSide].pieces[2] = cube.sides[5].pieces[2];
-            cube.sides[frontSide].pieces[5] = cube.sides[5].pieces[5];
-            cube.sides[frontSide].pieces[8] = cube.sides[5].pieces[8];
+            cube.sides[frontSide].pieces[2] = cube.sides[5].pieces[WCoordinates[0]];
+            cube.sides[frontSide].pieces[5] = cube.sides[5].pieces[WCoordinates[1]];
+            cube.sides[frontSide].pieces[8] = cube.sides[5].pieces[WCoordinates[2]];
 
-            cube.sides[5].pieces[2] = cube.sides[backSide].pieces[0];
-            cube.sides[5].pieces[5] = cube.sides[backSide].pieces[3];
-            cube.sides[5].pieces[8] = cube.sides[backSide].pieces[6];
+            cube.sides[5].pieces[WCoordinates[0]] = cube.sides[backSide].pieces[6];
+            cube.sides[5].pieces[WCoordinates[1]] = cube.sides[backSide].pieces[3];
+            cube.sides[5].pieces[WCoordinates[2]] = cube.sides[backSide].pieces[0];
 
-            cube.sides[backSide].pieces[0] = cube.sides[4].pieces[2];
-            cube.sides[backSide].pieces[3] = cube.sides[4].pieces[5];
-            cube.sides[backSide].pieces[6] = cube.sides[4].pieces[8];
+            cube.sides[backSide].pieces[6] = cube.sides[4].pieces[YCoordinates[0]];
+            cube.sides[backSide].pieces[3] = cube.sides[4].pieces[YCoordinates[1]];
+            cube.sides[backSide].pieces[0] = cube.sides[4].pieces[YCoordinates[2]];
 
-            cube.sides[4].pieces[2] = p1;
-            cube.sides[4].pieces[5] = p2;
-            cube.sides[4].pieces[8] = p3;
+            cube.sides[4].pieces[YCoordinates[0]] = p1;
+            cube.sides[4].pieces[YCoordinates[1]] = p2;
+            cube.sides[4].pieces[YCoordinates[2]] = p3;
 
             /*/
             CornerPiece tmpC1 = cube.sides[frontSide].cPieces[1];
@@ -320,9 +331,17 @@ namespace RCSConsole
             {
                 yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
             }
+            else if (cube.frontC == Color.Yellow)
+            {
+                yoR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+            }
             else if (cube.topC == Color.White)
             {
-                yoL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                yoR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -337,25 +356,28 @@ namespace RCSConsole
 
         private static void yoR(Cube cube, int frontSide, int backSide)
         {
+            int[] YCoordinates = GetYCoordinates(frontSide);
+            int[] WCoordinates = GetWCoordinates(frontSide);
+
             CubePiece p1 = cube.sides[frontSide].pieces[2];
             CubePiece p2 = cube.sides[frontSide].pieces[5];
             CubePiece p3 = cube.sides[frontSide].pieces[8];
 
-            cube.sides[frontSide].pieces[2] = cube.sides[4].pieces[2];
-            cube.sides[frontSide].pieces[5] = cube.sides[4].pieces[5];
-            cube.sides[frontSide].pieces[8] = cube.sides[4].pieces[8];
+            cube.sides[frontSide].pieces[2] = cube.sides[4].pieces[YCoordinates[0]];
+            cube.sides[frontSide].pieces[5] = cube.sides[4].pieces[YCoordinates[1]];
+            cube.sides[frontSide].pieces[8] = cube.sides[4].pieces[YCoordinates[2]];
 
-            cube.sides[4].pieces[2] = cube.sides[backSide].pieces[0];
-            cube.sides[4].pieces[5] = cube.sides[backSide].pieces[3];
-            cube.sides[4].pieces[8] = cube.sides[backSide].pieces[6];
+            cube.sides[4].pieces[YCoordinates[0]] = cube.sides[backSide].pieces[6];
+            cube.sides[4].pieces[YCoordinates[1]] = cube.sides[backSide].pieces[3];
+            cube.sides[4].pieces[YCoordinates[2]] = cube.sides[backSide].pieces[0];
 
-            cube.sides[backSide].pieces[0] = cube.sides[5].pieces[2];
-            cube.sides[backSide].pieces[3] = cube.sides[5].pieces[5];
-            cube.sides[backSide].pieces[6] = cube.sides[5].pieces[8];
+            cube.sides[backSide].pieces[6] = cube.sides[5].pieces[WCoordinates[0]];
+            cube.sides[backSide].pieces[3] = cube.sides[5].pieces[WCoordinates[1]];
+            cube.sides[backSide].pieces[0] = cube.sides[5].pieces[WCoordinates[2]];
 
-            cube.sides[5].pieces[2] = p1;
-            cube.sides[5].pieces[5] = p2;
-            cube.sides[5].pieces[8] = p3;
+            cube.sides[5].pieces[WCoordinates[0]] = p1;
+            cube.sides[5].pieces[WCoordinates[1]] = p2;
+            cube.sides[5].pieces[WCoordinates[2]] = p3;
 
             /*/
             CornerPiece tmpC1 = cube.sides[frontSide].cPieces[1];
@@ -380,15 +402,57 @@ namespace RCSConsole
             /**/
         }
 
+        private static int[] GetYCoordinates(int frontSide)
+        {
+            switch (frontSide)
+            {
+                case 0:
+                    return new int[] { 2, 5, 8 };
+                case 1:
+                    return new int[] { 0, 1, 2 };
+                case 2:
+                    return new int[] { 6, 3, 0 };
+                case 3:
+                    return new int[] { 8, 7, 6 };
+                default:
+                    return new int[] { };
+            }
+        }
+
+        private static int[] GetWCoordinates(int frontSide)
+        {
+            switch (frontSide)
+            {
+                case 0:
+                    return new int[] { 2, 5, 8 };
+                case 1:
+                    return new int[] { 8, 7, 6 };
+                case 2:
+                    return new int[] { 6, 3, 0 };
+                case 3:
+                    return new int[] { 0, 1, 2 };
+                default:
+                    return new int[] { };
+            }
+        }
+
         public static void L(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                yR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
             }
             else if (cube.topC == Color.White)
             {
                 yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+            }
+            else if (cube.frontC == Color.White)
+            {
+                yR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -401,60 +465,23 @@ namespace RCSConsole
             }
         }
 
-        private static void yL(Cube cube, int frontSide, int backSide)
-        {
-            CubePiece p1 = cube.sides[frontSide].pieces[0];
-            CubePiece p2 = cube.sides[frontSide].pieces[3];
-            CubePiece p3 = cube.sides[frontSide].pieces[6];
-
-            cube.sides[frontSide].pieces[0] = cube.sides[4].pieces[0];
-            cube.sides[frontSide].pieces[3] = cube.sides[4].pieces[3];
-            cube.sides[frontSide].pieces[6] = cube.sides[4].pieces[6];
-
-            cube.sides[4].pieces[0] = cube.sides[backSide].pieces[2];
-            cube.sides[4].pieces[3] = cube.sides[backSide].pieces[5];
-            cube.sides[4].pieces[6] = cube.sides[backSide].pieces[8];
-
-            cube.sides[backSide].pieces[2] = cube.sides[5].pieces[0];
-            cube.sides[backSide].pieces[5] = cube.sides[5].pieces[3];
-            cube.sides[backSide].pieces[8] = cube.sides[5].pieces[6];
-
-            cube.sides[5].pieces[0] = p1;
-            cube.sides[5].pieces[1] = p2;
-            cube.sides[5].pieces[2] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[frontSide].cPieces[0];
-            SidePiece tmpS1 = cube.sides[frontSide].sPieces[1];
-            CornerPiece tmpC2 = cube.sides[frontSide].cPieces[2];
-
-            cube.sides[frontSide].cPieces[0] = cube.sides[4].cPieces[0];
-            cube.sides[frontSide].sPieces[1] = cube.sides[4].sPieces[1];
-            cube.sides[frontSide].cPieces[2] = cube.sides[4].cPieces[2];
-
-            cube.sides[4].cPieces[0] = cube.sides[backSide].cPieces[1];
-            cube.sides[4].sPieces[1] = cube.sides[backSide].sPieces[2];
-            cube.sides[4].cPieces[2] = cube.sides[backSide].cPieces[3];
-
-            cube.sides[backSide].cPieces[1] = cube.sides[5].cPieces[0];
-            cube.sides[backSide].sPieces[2] = cube.sides[5].sPieces[1];
-            cube.sides[backSide].cPieces[3] = cube.sides[5].cPieces[2];
-
-            cube.sides[5].cPieces[0] = tmpC1;
-            cube.sides[5].sPieces[1] = tmpS1;
-            cube.sides[5].cPieces[2] = tmpC2;
-            /**/
-        }
-
         public static void oL(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoL(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                yoR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
             }
             else if (cube.topC == Color.White)
             {
                 yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+            }
+            else if (cube.frontC == Color.White)
+            {
+                yoR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -465,51 +492,6 @@ namespace RCSConsole
             {
                 yoD(cube);
             }
-        }
-
-        private static void yoL(Cube cube, int frontSide, int backSide)
-        {
-            CubePiece p1 = cube.sides[frontSide].pieces[0];
-            CubePiece p2 = cube.sides[frontSide].pieces[3];
-            CubePiece p3 = cube.sides[frontSide].pieces[6];
-
-            cube.sides[frontSide].pieces[0] = cube.sides[5].pieces[0];
-            cube.sides[frontSide].pieces[3] = cube.sides[5].pieces[3];
-            cube.sides[frontSide].pieces[6] = cube.sides[5].pieces[6];
-
-            cube.sides[5].pieces[0] = cube.sides[backSide].pieces[2];
-            cube.sides[5].pieces[3] = cube.sides[backSide].pieces[5];
-            cube.sides[5].pieces[6] = cube.sides[backSide].pieces[8];
-
-            cube.sides[backSide].pieces[2] = cube.sides[4].pieces[0];
-            cube.sides[backSide].pieces[5] = cube.sides[4].pieces[3];
-            cube.sides[backSide].pieces[8] = cube.sides[4].pieces[6];
-
-            cube.sides[4].pieces[0] = p1;
-            cube.sides[4].pieces[3] = p2;
-            cube.sides[4].pieces[6] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[frontSide].cPieces[0];
-            SidePiece tmpS1 = cube.sides[frontSide].sPieces[1];
-            CornerPiece tmpC2 = cube.sides[frontSide].cPieces[2];
-
-            cube.sides[frontSide].cPieces[0] = cube.sides[5].cPieces[0];
-            cube.sides[frontSide].sPieces[1] = cube.sides[5].sPieces[1];
-            cube.sides[frontSide].cPieces[2] = cube.sides[5].cPieces[2];
-
-            cube.sides[5].cPieces[0] = cube.sides[backSide].cPieces[1];
-            cube.sides[5].sPieces[1] = cube.sides[backSide].sPieces[2];
-            cube.sides[5].cPieces[2] = cube.sides[backSide].cPieces[3];
-
-            cube.sides[backSide].cPieces[1] = cube.sides[4].cPieces[0];
-            cube.sides[backSide].sPieces[2] = cube.sides[4].sPieces[1];
-            cube.sides[backSide].cPieces[3] = cube.sides[4].cPieces[2];
-
-            cube.sides[4].cPieces[0] = tmpC1;
-            cube.sides[4].sPieces[1] = tmpS1;
-            cube.sides[4].cPieces[2] = tmpC2;
-            /**/
         }
 
         public static void F(Cube cube)
@@ -524,54 +506,8 @@ namespace RCSConsole
             }
             else
             {
-                //yF(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
                 yR(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
             }
-        }
-
-        private static void yF(Cube cube, int leftSide, int rightSide)
-        {
-            CubePiece p1 = cube.sides[leftSide].pieces[2];
-            CubePiece p2 = cube.sides[leftSide].pieces[5];
-            CubePiece p3 = cube.sides[leftSide].pieces[8];
-
-            cube.sides[leftSide].pieces[2] = cube.sides[5].pieces[0];
-            cube.sides[leftSide].pieces[5] = cube.sides[5].pieces[1];
-            cube.sides[leftSide].pieces[8] = cube.sides[5].pieces[2];
-
-            cube.sides[5].pieces[0] = cube.sides[rightSide].pieces[0];
-            cube.sides[5].pieces[1] = cube.sides[rightSide].pieces[3];
-            cube.sides[5].pieces[2] = cube.sides[rightSide].pieces[6];
-
-            cube.sides[rightSide].pieces[0] = cube.sides[4].pieces[6];
-            cube.sides[rightSide].pieces[3] = cube.sides[4].pieces[7];
-            cube.sides[rightSide].pieces[6] = cube.sides[4].pieces[8];
-
-            cube.sides[4].pieces[6] = p1;
-            cube.sides[4].pieces[7] = p2;
-            cube.sides[4].pieces[8] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[leftSide].cPieces[1];
-            SidePiece tmpS1 = cube.sides[leftSide].sPieces[2];
-            CornerPiece tmpC2 = cube.sides[leftSide].cPieces[3];
-
-            cube.sides[leftSide].cPieces[1] = cube.sides[5].cPieces[0];
-            cube.sides[leftSide].sPieces[2] = cube.sides[5].sPieces[0];
-            cube.sides[leftSide].cPieces[3] = cube.sides[5].cPieces[1];
-
-            cube.sides[5].cPieces[0] = cube.sides[rightSide].cPieces[0];
-            cube.sides[5].sPieces[0] = cube.sides[rightSide].sPieces[1];
-            cube.sides[5].cPieces[1] = cube.sides[rightSide].cPieces[2];
-
-            cube.sides[rightSide].cPieces[0] = cube.sides[4].cPieces[2];
-            cube.sides[rightSide].sPieces[1] = cube.sides[4].sPieces[3];
-            cube.sides[rightSide].cPieces[2] = cube.sides[4].cPieces[3];
-
-            cube.sides[4].cPieces[2] = tmpC1;
-            cube.sides[4].sPieces[3] = tmpS1;
-            cube.sides[4].cPieces[3] = tmpC2;
-            /**/
         }
 
         public static void oF(Cube cube)
@@ -586,53 +522,8 @@ namespace RCSConsole
             }
             else
             {
-                yoF(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
+                yoR(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
             }
-        }
-
-        private static void yoF(Cube cube, int leftSide, int rightSide)
-        {
-            CubePiece p1 = cube.sides[leftSide].pieces[2];
-            CubePiece p2 = cube.sides[leftSide].pieces[5];
-            CubePiece p3 = cube.sides[leftSide].pieces[8];
-
-            cube.sides[leftSide].pieces[2] = cube.sides[4].pieces[6];
-            cube.sides[leftSide].pieces[5] = cube.sides[4].pieces[7];
-            cube.sides[leftSide].pieces[8] = cube.sides[4].pieces[8];
-
-            cube.sides[4].pieces[6] = cube.sides[rightSide].pieces[0];
-            cube.sides[4].pieces[7] = cube.sides[rightSide].pieces[3];
-            cube.sides[4].pieces[8] = cube.sides[rightSide].pieces[6];
-
-            cube.sides[rightSide].pieces[0] = cube.sides[5].pieces[0];
-            cube.sides[rightSide].pieces[3] = cube.sides[5].pieces[1];
-            cube.sides[rightSide].pieces[6] = cube.sides[5].pieces[2];
-
-            cube.sides[5].pieces[0] = p1;
-            cube.sides[5].pieces[1] = p2;
-            cube.sides[5].pieces[2] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[leftSide].cPieces[1];
-            SidePiece tmpS1 = cube.sides[leftSide].sPieces[2];
-            CornerPiece tmpC2 = cube.sides[leftSide].cPieces[3];
-
-            cube.sides[leftSide].cPieces[1] = cube.sides[4].cPieces[2];
-            cube.sides[leftSide].sPieces[2] = cube.sides[4].sPieces[3];
-            cube.sides[leftSide].cPieces[3] = cube.sides[4].cPieces[3];
-
-            cube.sides[4].cPieces[2] = cube.sides[rightSide].cPieces[0];
-            cube.sides[4].sPieces[3] = cube.sides[rightSide].sPieces[1];
-            cube.sides[4].cPieces[3] = cube.sides[rightSide].cPieces[2];
-
-            cube.sides[rightSide].cPieces[0] = cube.sides[5].cPieces[0];
-            cube.sides[rightSide].sPieces[1] = cube.sides[5].sPieces[0];
-            cube.sides[rightSide].cPieces[2] = cube.sides[5].cPieces[1];
-
-            cube.sides[5].cPieces[0] = tmpC1;
-            cube.sides[5].sPieces[0] = tmpS1;
-            cube.sides[5].cPieces[1] = tmpC2;
-            /**/
         }
 
         public static void B(Cube cube)
@@ -647,53 +538,8 @@ namespace RCSConsole
             }
             else
             {
-                yB(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
+                yR(cube, Modulo.sIntMod(cube.frontC + 1), Modulo.sIntMod(cube.frontC - 1));
             }
-        }
-
-        private static void yB(Cube cube, int leftSide, int rightSide)
-        {
-            CubePiece p1 = cube.sides[leftSide].pieces[0];
-            CubePiece p2 = cube.sides[leftSide].pieces[3];
-            CubePiece p3 = cube.sides[leftSide].pieces[6];
-
-            cube.sides[leftSide].pieces[0] = cube.sides[4].pieces[0];
-            cube.sides[leftSide].pieces[3] = cube.sides[4].pieces[1];
-            cube.sides[leftSide].pieces[6] = cube.sides[4].pieces[2];
-
-            cube.sides[4].pieces[0] = cube.sides[rightSide].pieces[2];
-            cube.sides[4].pieces[1] = cube.sides[rightSide].pieces[5];
-            cube.sides[4].pieces[2] = cube.sides[rightSide].pieces[8];
-
-            cube.sides[rightSide].pieces[2] = cube.sides[5].pieces[6];
-            cube.sides[rightSide].pieces[5] = cube.sides[5].pieces[7];
-            cube.sides[rightSide].pieces[8] = cube.sides[5].pieces[8];
-
-            cube.sides[5].pieces[6] = p1;
-            cube.sides[5].pieces[7] = p2;
-            cube.sides[5].pieces[8] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[leftSide].cPieces[0];
-            SidePiece tmpS1 = cube.sides[leftSide].sPieces[1];
-            CornerPiece tmpC2 = cube.sides[leftSide].cPieces[2];
-
-            cube.sides[leftSide].cPieces[0] = cube.sides[4].cPieces[0];
-            cube.sides[leftSide].sPieces[1] = cube.sides[4].sPieces[0];
-            cube.sides[leftSide].cPieces[2] = cube.sides[4].cPieces[1];
-
-            cube.sides[4].cPieces[0] = cube.sides[rightSide].cPieces[1];
-            cube.sides[4].sPieces[0] = cube.sides[rightSide].sPieces[2];
-            cube.sides[4].cPieces[1] = cube.sides[rightSide].cPieces[3];
-
-            cube.sides[rightSide].cPieces[1] = cube.sides[5].cPieces[2];
-            cube.sides[rightSide].sPieces[2] = cube.sides[5].sPieces[3];
-            cube.sides[rightSide].cPieces[3] = cube.sides[5].cPieces[3];
-
-            cube.sides[5].cPieces[2] = tmpC1;
-            cube.sides[5].sPieces[3] = tmpS1;
-            cube.sides[5].cPieces[3] = tmpC2;
-            /**/
         }
 
         public static void oB(Cube cube)
@@ -708,53 +554,8 @@ namespace RCSConsole
             }
             else
             {
-                yoB(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 1), Modulo.sIntMod(cube.frontC - 1));
             }
-        }
-
-        private static void yoB(Cube cube, int leftSide, int rightSide)
-        {
-            CubePiece p1 = cube.sides[leftSide].pieces[0];
-            CubePiece p2 = cube.sides[leftSide].pieces[3];
-            CubePiece p3 = cube.sides[leftSide].pieces[6];
-
-            cube.sides[leftSide].pieces[0] = cube.sides[5].pieces[6];
-            cube.sides[leftSide].pieces[3] = cube.sides[5].pieces[7];
-            cube.sides[leftSide].pieces[6] = cube.sides[5].pieces[8];
-
-            cube.sides[5].pieces[6] = cube.sides[rightSide].pieces[2];
-            cube.sides[5].pieces[7] = cube.sides[rightSide].pieces[5];
-            cube.sides[5].pieces[8] = cube.sides[rightSide].pieces[8];
-
-            cube.sides[rightSide].pieces[2] = cube.sides[4].pieces[0];
-            cube.sides[rightSide].pieces[5] = cube.sides[4].pieces[1];
-            cube.sides[rightSide].pieces[8] = cube.sides[4].pieces[2];
-
-            cube.sides[4].pieces[0] = p1;
-            cube.sides[4].pieces[1] = p2;
-            cube.sides[4].pieces[2] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[leftSide].cPieces[0];
-            SidePiece tmpS1 = cube.sides[leftSide].sPieces[1];
-            CornerPiece tmpC2 = cube.sides[leftSide].cPieces[2];
-
-            cube.sides[leftSide].cPieces[0] = cube.sides[5].cPieces[2];
-            cube.sides[leftSide].sPieces[1] = cube.sides[5].sPieces[3];
-            cube.sides[leftSide].cPieces[2] = cube.sides[5].cPieces[3];
-
-            cube.sides[5].cPieces[2] = cube.sides[rightSide].cPieces[1];
-            cube.sides[5].sPieces[3] = cube.sides[rightSide].sPieces[2];
-            cube.sides[5].cPieces[3] = cube.sides[rightSide].cPieces[3];
-
-            cube.sides[rightSide].cPieces[1] = cube.sides[4].cPieces[0];
-            cube.sides[rightSide].sPieces[2] = cube.sides[4].sPieces[0];
-            cube.sides[rightSide].cPieces[3] = cube.sides[4].cPieces[1];
-
-            cube.sides[4].cPieces[0] = tmpC1;
-            cube.sides[4].sPieces[0] = tmpS1;
-            cube.sides[4].cPieces[1] = tmpC2;
-            /**/
         }
 
         public static void U2(Cube cube)
@@ -953,6 +754,174 @@ namespace RCSConsole
         {
             RotationZ(cube);
             RotationZ(cube);
+        }
+
+        public static void Uw(Cube cube)
+        {
+            RotationY(cube);
+            D(cube);
+        }
+
+        public static void oUw(Cube cube)
+        {
+            oRotationY(cube);
+            oD(cube);
+        }
+
+        public static void Dw(Cube cube)
+        {
+            oRotationY(cube);
+            U(cube);
+        }
+
+        public static void oDw(Cube cube)
+        {
+            RotationY(cube);
+            oU(cube);
+        }
+
+        public static void Rw(Cube cube)
+        {
+            RotationX(cube);
+            L(cube);
+        }
+
+        public static void oRw(Cube cube)
+        {
+            oRotationX(cube);
+            oL(cube);
+        }
+
+        public static void Lw(Cube cube)
+        {
+            oRotationX(cube);
+            R(cube);
+        }
+
+        public static void oLw(Cube cube)
+        {
+            RotationX(cube);
+            oR(cube);
+        }
+
+        public static void Fw(Cube cube)
+        {
+            RotationZ(cube);
+            B(cube);
+        }
+
+        public static void oFw(Cube cube)
+        {
+            oRotationZ(cube);
+            oB(cube);
+        }
+
+        public static void Bw(Cube cube)
+        {
+            oRotationZ(cube);
+            F(cube);
+        }
+
+        public static void oBw(Cube cube)
+        {
+            RotationZ(cube);
+            oF(cube);
+        }
+
+        public static void Uw2(Cube cube)
+        {
+            Uw(cube);
+            Uw(cube);
+        }
+
+        public static void Dw2(Cube cube)
+        {
+            Dw(cube);
+            Dw(cube);
+        }
+
+        public static void Rw2(Cube cube)
+        {
+            Rw(cube);
+            Rw(cube);
+        }
+
+        public static void Lw2(Cube cube)
+        {
+            Lw(cube);
+            Lw(cube);
+        }
+
+        public static void Fw2(Cube cube)
+        {
+            Fw(cube);
+            Fw(cube);
+        }
+
+        public static void Bw2(Cube cube)
+        {
+            Bw(cube);
+            Bw(cube);
+        }
+
+        public static void M(Cube cube)
+        {
+            oRotationX(cube);
+            oL(cube);
+            R(cube);
+        }
+
+        public static void oM(Cube cube)
+        {
+            RotationX(cube);
+            L(cube);
+            oR(cube);
+        }
+
+        public static void E(Cube cube)
+        {
+            oRotationY(cube);
+            U(cube);
+            oD(cube);
+        }
+
+        public static void oE(Cube cube)
+        {
+            RotationY(cube);
+            oU(cube);
+            D(cube);
+        }
+
+        public static void S(Cube cube)
+        {
+            RotationZ(cube);
+            oF(cube);
+            B(cube);
+        }
+
+        public static void oS(Cube cube)
+        {
+            oRotationZ(cube);
+            F(cube);
+            oB(cube);
+        }
+
+        public static void M2(Cube cube)
+        {
+            M(cube);
+            M(cube);
+        }
+
+        public static void E2(Cube cube)
+        {
+            E(cube);
+            E(cube);
+        }
+
+        public static void S2(Cube cube)
+        {
+            S(cube);
+            S(cube);
         }
     }
 }

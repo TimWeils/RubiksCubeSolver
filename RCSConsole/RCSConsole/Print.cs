@@ -17,8 +17,8 @@ namespace RCSConsole
                 SetFGColor(c.sides[i].cPiece.thisSideC);
                 Console.Write(c.sides[i].cPiece.thisSideC);
                 /**/
-                SetFGColor(c.sides[i].pieces[5].Color);
-                Console.Write(c.sides[i].pieces[5].Color);
+                SetFGColor(c.sides[i].pieces[4].Color);
+                Console.Write(c.sides[i].pieces[4].Color);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(" side of the cube:");
                 PrintSide(c.sides[i]);

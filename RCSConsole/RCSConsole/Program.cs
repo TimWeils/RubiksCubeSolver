@@ -9,13 +9,16 @@ namespace RCSConsole
     class Program
     {
         // Reminder
-        // Vsechno by slo resit pouze R rotaci stacilo by vedet rozlozeni barevnych stran na 
-        // jehoz zaklade by slo spravne nastavit policka na Y a W stranach.
+        // Pri rotacich se neotaci casti na rotujici stene
+        // Napriklad:
+        // yU nerotuje barvy na Y stene okolo stredu
+        // yR nerotuje barvy na R stene okolo stredu
         static void Main(string[] args)
         {
             Cube cube = LoadSolvedCube();
-            //Moves.RotationX(cube);
-            Moves.F(cube);
+            Moves.R(cube);
+            Moves.U(cube);
+            Moves.oR(cube);
             Print.PrintCube(cube);
             Console.ReadLine();
         }
