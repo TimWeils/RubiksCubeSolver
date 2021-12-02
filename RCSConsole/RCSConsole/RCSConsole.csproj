@@ -43,18 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CenterPiece.cs" />
     <Compile Include="Color.cs" />
-    <Compile Include="CornerPiece.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubePiece.cs" />
     <Compile Include="Modulo.cs" />
     <Compile Include="Moves.cs" />
-    <Compile Include="Print.cs" />
+    <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader.cs" />
     <Compile Include="Side.cs" />
-    <Compile Include="SidePiece.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

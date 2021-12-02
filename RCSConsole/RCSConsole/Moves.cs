@@ -20,21 +20,23 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yR(cube, Modulo.sIntMod(cube.topC - 1), Modulo.sIntMod(cube.topC + 1));
+                yR(cube, Modulo.sIntMod(cube.topC - 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, (int)cube.frontC);
             }
             else
             {
-                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
         }
 
         private static void yU(Cube cube)
         {
+            RotateSideClockwise(cube.sides[4]);
+
             CubePiece p1 = cube.sides[0].pieces[0];
             CubePiece p2 = cube.sides[0].pieces[1];
             CubePiece p3 = cube.sides[0].pieces[2];
@@ -49,23 +51,6 @@ namespace RCSConsole
             cube.sides[3].pieces[0] = p1;
             cube.sides[3].pieces[1] = p2;
             cube.sides[3].pieces[2] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[0].cPieces[0];
-            SidePiece tmpS1 = cube.sides[0].sPieces[0];
-            CornerPiece tmpC2 = cube.sides[0].cPieces[1];
-
-            for (int i = 0; i <= 2; i++)
-            {
-                cube.sides[i].cPieces[0] = cube.sides[i + 1].cPieces[0];
-                cube.sides[i].sPieces[0] = cube.sides[i + 1].sPieces[0];
-                cube.sides[i].cPieces[1] = cube.sides[i + 1].cPieces[1];
-            }
-
-            cube.sides[3].cPieces[0] = tmpC1;
-            cube.sides[3].sPieces[0] = tmpS1;
-            cube.sides[3].cPieces[1] = tmpC2;
-            /**/
         }
 
         public static void oU(Cube cube)
@@ -80,21 +65,23 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC - 1), Modulo.sIntMod(cube.topC + 1));
+                yoR(cube, Modulo.sIntMod(cube.topC - 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, (int)cube.frontC);
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
         }
 
         private static void yoU(Cube cube)
         {
+            RotateSideCounterclockwise(cube.sides[4]);
+
             CubePiece p1 = cube.sides[0].pieces[0];
             CubePiece p2 = cube.sides[0].pieces[1];
             CubePiece p3 = cube.sides[0].pieces[2];
@@ -109,23 +96,6 @@ namespace RCSConsole
             cube.sides[1].pieces[0] = p1;
             cube.sides[1].pieces[1] = p2;
             cube.sides[1].pieces[2] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[0].cPieces[0];
-            SidePiece tmpS1 = cube.sides[0].sPieces[0];
-            CornerPiece tmpC2 = cube.sides[0].cPieces[1];
-
-            for (int i = 3; i >= 1; i--)
-            {
-                cube.sides[(i + 1) % 4].cPieces[0] = cube.sides[i].cPieces[0];
-                cube.sides[(i + 1) % 4].sPieces[0] = cube.sides[i].sPieces[0];
-                cube.sides[(i + 1) % 4].cPieces[1] = cube.sides[i].cPieces[1];
-            }
-
-            cube.sides[1].cPieces[0] = tmpC1;
-            cube.sides[1].sPieces[0] = tmpS1;
-            cube.sides[1].cPieces[1] = tmpC2;
-            /**/
         }
 
         public static void D(Cube cube)
@@ -140,21 +110,23 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yR(cube, Modulo.sIntMod(cube.topC + 1), Modulo.sIntMod(cube.topC - 1));
+                yR(cube, Modulo.sIntMod(cube.topC + 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else
             {
-                yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, (int)cube.frontC);
             }
         }
 
         private static void yD(Cube cube)
         {
+            RotateSideClockwise(cube.sides[5]);
+
             CubePiece p1 = cube.sides[0].pieces[6];
             CubePiece p2 = cube.sides[0].pieces[7];
             CubePiece p3 = cube.sides[0].pieces[8];
@@ -169,23 +141,6 @@ namespace RCSConsole
             cube.sides[1].pieces[6] = p1;
             cube.sides[1].pieces[7] = p2;
             cube.sides[1].pieces[8] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[0].cPieces[2];
-            SidePiece tmpS1 = cube.sides[0].sPieces[3];
-            CornerPiece tmpC2 = cube.sides[0].cPieces[3];
-
-            for (int i = 3; i >= 1; i--)
-            {
-                cube.sides[(i + 1) % 4].cPieces[2] = cube.sides[i].cPieces[2];
-                cube.sides[(i + 1) % 4].sPieces[3] = cube.sides[i].sPieces[3];
-                cube.sides[(i + 1) % 4].cPieces[3] = cube.sides[i].cPieces[3];
-            }
-
-            cube.sides[1].cPieces[2] = tmpC1;
-            cube.sides[1].sPieces[3] = tmpS1;
-            cube.sides[1].cPieces[3] = tmpC2;
-            /**/
         }
 
         public static void oD(Cube cube)
@@ -200,21 +155,23 @@ namespace RCSConsole
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 1), Modulo.sIntMod(cube.topC - 1));
+                yoR(cube, Modulo.sIntMod(cube.topC + 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else
             {
-                yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, (int)cube.frontC);
             }
         }
 
         private static void yoD(Cube cube)
         {
+            RotateSideCounterclockwise(cube.sides[5]);
+
             CubePiece p1 = cube.sides[0].pieces[6];
             CubePiece p2 = cube.sides[0].pieces[7];
             CubePiece p3 = cube.sides[0].pieces[8];
@@ -229,42 +186,25 @@ namespace RCSConsole
             cube.sides[3].pieces[6] = p1;
             cube.sides[3].pieces[7] = p2;
             cube.sides[3].pieces[8] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[0].cPieces[2];
-            SidePiece tmpS1 = cube.sides[0].sPieces[3];
-            CornerPiece tmpC2 = cube.sides[0].cPieces[3];
-
-            for (int i = 0; i <= 2; i++)
-            {
-                cube.sides[i].cPieces[2] = cube.sides[i + 1].cPieces[2];
-                cube.sides[i].sPieces[3] = cube.sides[i + 1].sPieces[3];
-                cube.sides[i].cPieces[3] = cube.sides[i + 1].cPieces[3];
-            }
-
-            cube.sides[3].cPieces[2] = tmpC1;
-            cube.sides[3].sPieces[3] = tmpS1;
-            cube.sides[3].cPieces[3] = tmpC2;
-            /**/
         } 
 
         public static void R(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+                yR(cube, Modulo.sIntMod(cube.topC + 2));
             }
             else if (cube.topC == Color.White)
             {
-                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.White)
             {
-                yR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
+                yR(cube, (int)cube.topC);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -277,71 +217,54 @@ namespace RCSConsole
             }
         }
 
-        private static void yR(Cube cube, int frontSide, int backSide)
+        private static void yR(Cube cube, int frontSide)
         {
-            int[] YCoordinates = GetYCoordinates(frontSide);
-            int[] WCoordinates = GetWCoordinates(frontSide);
+            int backSide = (frontSide + 2) % 4;
+            int rightSide = (frontSide + 1) % 4;
+
+            RotateSideClockwise(cube.sides[rightSide]);
+
+            int[] YCoordinates = Cube.GetYCoordinates((Color)frontSide);
+            int[] WCoordinates = Cube.GetWCoordinates((Color)frontSide);
 
             CubePiece p1 = cube.sides[frontSide].pieces[2];
             CubePiece p2 = cube.sides[frontSide].pieces[5];
             CubePiece p3 = cube.sides[frontSide].pieces[8];
 
-            cube.sides[frontSide].pieces[2] = cube.sides[5].pieces[WCoordinates[0]];
-            cube.sides[frontSide].pieces[5] = cube.sides[5].pieces[WCoordinates[1]];
-            cube.sides[frontSide].pieces[8] = cube.sides[5].pieces[WCoordinates[2]];
+            cube.sides[frontSide].pieces[2] = cube.sides[5].pieces[WCoordinates[2]];
+            cube.sides[frontSide].pieces[5] = cube.sides[5].pieces[WCoordinates[5]];
+            cube.sides[frontSide].pieces[8] = cube.sides[5].pieces[WCoordinates[8]];
 
-            cube.sides[5].pieces[WCoordinates[0]] = cube.sides[backSide].pieces[6];
-            cube.sides[5].pieces[WCoordinates[1]] = cube.sides[backSide].pieces[3];
-            cube.sides[5].pieces[WCoordinates[2]] = cube.sides[backSide].pieces[0];
+            cube.sides[5].pieces[WCoordinates[2]] = cube.sides[backSide].pieces[6];
+            cube.sides[5].pieces[WCoordinates[5]] = cube.sides[backSide].pieces[3];
+            cube.sides[5].pieces[WCoordinates[8]] = cube.sides[backSide].pieces[0];
 
-            cube.sides[backSide].pieces[6] = cube.sides[4].pieces[YCoordinates[0]];
-            cube.sides[backSide].pieces[3] = cube.sides[4].pieces[YCoordinates[1]];
-            cube.sides[backSide].pieces[0] = cube.sides[4].pieces[YCoordinates[2]];
+            cube.sides[backSide].pieces[6] = cube.sides[4].pieces[YCoordinates[2]];
+            cube.sides[backSide].pieces[3] = cube.sides[4].pieces[YCoordinates[5]];
+            cube.sides[backSide].pieces[0] = cube.sides[4].pieces[YCoordinates[8]];
 
-            cube.sides[4].pieces[YCoordinates[0]] = p1;
-            cube.sides[4].pieces[YCoordinates[1]] = p2;
-            cube.sides[4].pieces[YCoordinates[2]] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[frontSide].cPieces[1];
-            SidePiece tmpS1 = cube.sides[frontSide].sPieces[2];
-            CornerPiece tmpC2 = cube.sides[frontSide].cPieces[3];
-
-            cube.sides[frontSide].cPieces[1] = cube.sides[5].cPieces[1];
-            cube.sides[frontSide].sPieces[2] = cube.sides[5].sPieces[2];
-            cube.sides[frontSide].cPieces[3] = cube.sides[5].cPieces[3];
-
-            cube.sides[5].cPieces[1] = cube.sides[backSide].cPieces[0];
-            cube.sides[5].sPieces[2] = cube.sides[backSide].sPieces[1];
-            cube.sides[5].cPieces[3] = cube.sides[backSide].cPieces[2];
-
-            cube.sides[backSide].cPieces[0] = cube.sides[4].cPieces[1];
-            cube.sides[backSide].sPieces[1] = cube.sides[4].sPieces[2];
-            cube.sides[backSide].cPieces[2] = cube.sides[4].cPieces[3];
-
-            cube.sides[4].cPieces[1] = tmpC1;
-            cube.sides[4].sPieces[2] = tmpS1;
-            cube.sides[4].cPieces[3] = tmpC2;
-            /**/
+            cube.sides[4].pieces[YCoordinates[2]] = p1;
+            cube.sides[4].pieces[YCoordinates[5]] = p2;
+            cube.sides[4].pieces[YCoordinates[8]] = p3;
         }
 
         public static void oR(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+                yoR(cube, Modulo.sIntMod(cube.topC + 2));
             }
             else if (cube.topC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.White)
             {
-                yoR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
+                yoR(cube, (int)cube.topC);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -354,105 +277,86 @@ namespace RCSConsole
             }
         }
 
-        private static void yoR(Cube cube, int frontSide, int backSide)
+        private static void yoR(Cube cube, int frontSide)
         {
-            int[] YCoordinates = GetYCoordinates(frontSide);
-            int[] WCoordinates = GetWCoordinates(frontSide);
+            int backSide = (frontSide + 2) % 4;
+            int rightSide = (frontSide + 1) % 4;
+
+            RotateSideCounterclockwise(cube.sides[rightSide]);
+
+            int[] YCoordinates = Cube.GetYCoordinates((Color)frontSide);
+            int[] WCoordinates = Cube.GetWCoordinates((Color)frontSide);
 
             CubePiece p1 = cube.sides[frontSide].pieces[2];
             CubePiece p2 = cube.sides[frontSide].pieces[5];
             CubePiece p3 = cube.sides[frontSide].pieces[8];
 
-            cube.sides[frontSide].pieces[2] = cube.sides[4].pieces[YCoordinates[0]];
-            cube.sides[frontSide].pieces[5] = cube.sides[4].pieces[YCoordinates[1]];
-            cube.sides[frontSide].pieces[8] = cube.sides[4].pieces[YCoordinates[2]];
+            cube.sides[frontSide].pieces[2] = cube.sides[4].pieces[YCoordinates[2]];
+            cube.sides[frontSide].pieces[5] = cube.sides[4].pieces[YCoordinates[5]];
+            cube.sides[frontSide].pieces[8] = cube.sides[4].pieces[YCoordinates[8]];
 
-            cube.sides[4].pieces[YCoordinates[0]] = cube.sides[backSide].pieces[6];
-            cube.sides[4].pieces[YCoordinates[1]] = cube.sides[backSide].pieces[3];
-            cube.sides[4].pieces[YCoordinates[2]] = cube.sides[backSide].pieces[0];
+            cube.sides[4].pieces[YCoordinates[2]] = cube.sides[backSide].pieces[6];
+            cube.sides[4].pieces[YCoordinates[5]] = cube.sides[backSide].pieces[3];
+            cube.sides[4].pieces[YCoordinates[8]] = cube.sides[backSide].pieces[0];
 
-            cube.sides[backSide].pieces[6] = cube.sides[5].pieces[WCoordinates[0]];
-            cube.sides[backSide].pieces[3] = cube.sides[5].pieces[WCoordinates[1]];
-            cube.sides[backSide].pieces[0] = cube.sides[5].pieces[WCoordinates[2]];
+            cube.sides[backSide].pieces[6] = cube.sides[5].pieces[WCoordinates[2]];
+            cube.sides[backSide].pieces[3] = cube.sides[5].pieces[WCoordinates[5]];
+            cube.sides[backSide].pieces[0] = cube.sides[5].pieces[WCoordinates[8]];
 
-            cube.sides[5].pieces[WCoordinates[0]] = p1;
-            cube.sides[5].pieces[WCoordinates[1]] = p2;
-            cube.sides[5].pieces[WCoordinates[2]] = p3;
-
-            /*/
-            CornerPiece tmpC1 = cube.sides[frontSide].cPieces[1];
-            SidePiece tmpS1 = cube.sides[frontSide].sPieces[2];
-            CornerPiece tmpC2 = cube.sides[frontSide].cPieces[3];
-
-            cube.sides[frontSide].cPieces[1] = cube.sides[4].cPieces[1];
-            cube.sides[frontSide].sPieces[2] = cube.sides[4].sPieces[2];
-            cube.sides[frontSide].cPieces[3] = cube.sides[4].cPieces[3];
-
-            cube.sides[4].cPieces[1] = cube.sides[backSide].cPieces[0];
-            cube.sides[4].sPieces[2] = cube.sides[backSide].sPieces[1];
-            cube.sides[4].cPieces[3] = cube.sides[backSide].cPieces[2];
-
-            cube.sides[backSide].cPieces[0] = cube.sides[5].cPieces[1];
-            cube.sides[backSide].sPieces[1] = cube.sides[5].sPieces[2];
-            cube.sides[backSide].cPieces[2] = cube.sides[5].cPieces[3];
-
-            cube.sides[5].cPieces[1] = tmpC1;
-            cube.sides[5].sPieces[2] = tmpS1;
-            cube.sides[5].cPieces[3] = tmpC2;
-            /**/
+            cube.sides[5].pieces[WCoordinates[2]] = p1;
+            cube.sides[5].pieces[WCoordinates[5]] = p2;
+            cube.sides[5].pieces[WCoordinates[8]] = p3;
         }
 
-        private static int[] GetYCoordinates(int frontSide)
+        private static void RotateSideClockwise(Side side)
         {
-            switch (frontSide)
-            {
-                case 0:
-                    return new int[] { 2, 5, 8 };
-                case 1:
-                    return new int[] { 0, 1, 2 };
-                case 2:
-                    return new int[] { 6, 3, 0 };
-                case 3:
-                    return new int[] { 8, 7, 6 };
-                default:
-                    return new int[] { };
-            }
+            CubePiece p1 = side.pieces[0];
+            CubePiece p2 = side.pieces[1];
+
+            side.pieces[0] = side.pieces[6];
+            side.pieces[6] = side.pieces[8];
+            side.pieces[8] = side.pieces[2];
+            side.pieces[2] = p1;
+
+            side.pieces[1] = side.pieces[3];
+            side.pieces[3] = side.pieces[7];
+            side.pieces[7] = side.pieces[5];
+            side.pieces[5] = p2;
         }
 
-        private static int[] GetWCoordinates(int frontSide)
+        private static void RotateSideCounterclockwise(Side side)
         {
-            switch (frontSide)
-            {
-                case 0:
-                    return new int[] { 2, 5, 8 };
-                case 1:
-                    return new int[] { 8, 7, 6 };
-                case 2:
-                    return new int[] { 6, 3, 0 };
-                case 3:
-                    return new int[] { 0, 1, 2 };
-                default:
-                    return new int[] { };
-            }
+            CubePiece p1 = side.pieces[0];
+            CubePiece p2 = side.pieces[1];
+
+            side.pieces[0] = side.pieces[2];
+            side.pieces[2] = side.pieces[8];
+            side.pieces[8] = side.pieces[6];
+            side.pieces[6] = p1;
+
+            side.pieces[1] = side.pieces[5];
+            side.pieces[5] = side.pieces[7];
+            side.pieces[7] = side.pieces[3];
+            side.pieces[3] = p2;
         }
 
         public static void L(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
+                yR(cube, (int)cube.topC);
             }
             else if (cube.topC == Color.White)
             {
-                yR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yR(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.White)
             {
-                yR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+                yR(cube, Modulo.sIntMod(cube.topC + 2));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -469,19 +373,19 @@ namespace RCSConsole
         {
             if (cube.topC == Color.Yellow)
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2), (int)cube.frontC);
+                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yoR(cube, (int)cube.topC, Modulo.sIntMod(cube.topC + 2));
+                yoR(cube, (int)cube.topC);
             }
             else if (cube.topC == Color.White)
             {
-                yoR(cube, (int)cube.frontC, Modulo.sIntMod(cube.frontC + 2));
+                yoR(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 2), (int)cube.topC);
+                yoR(cube, Modulo.sIntMod(cube.topC + 2));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -506,7 +410,7 @@ namespace RCSConsole
             }
             else
             {
-                yR(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
+                yR(cube, Modulo.sIntMod(cube.frontC - 1));
             }
         }
 
@@ -522,7 +426,7 @@ namespace RCSConsole
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC - 1), Modulo.sIntMod(cube.frontC + 1));
+                yoR(cube, Modulo.sIntMod(cube.frontC - 1));
             }
         }
 
@@ -538,7 +442,7 @@ namespace RCSConsole
             }
             else
             {
-                yR(cube, Modulo.sIntMod(cube.frontC + 1), Modulo.sIntMod(cube.frontC - 1));
+                yR(cube, Modulo.sIntMod(cube.frontC + 1));
             }
         }
 
@@ -554,7 +458,7 @@ namespace RCSConsole
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 1), Modulo.sIntMod(cube.frontC - 1));
+                yoR(cube, Modulo.sIntMod(cube.frontC + 1));
             }
         }
 
@@ -656,13 +560,21 @@ namespace RCSConsole
 
         public static void RotationY(Cube cube)
         {
-            if (cube.topC == Color.Yellow || cube.frontC == Color.White)
+            if (cube.topC == Color.Yellow)
             {
                 cube.frontC = Modulo.sColorMod(cube.frontC + 1);
             }
-            else if (cube.topC == Color.White || cube.frontC == Color.Yellow)
+            else if (cube.topC == Color.White)
             {
                 cube.frontC = Modulo.sColorMod(cube.frontC - 1);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                cube.frontC = Modulo.sColorMod(cube.topC - 1);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                cube.frontC = Modulo.sColorMod(cube.topC + 1);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -677,13 +589,21 @@ namespace RCSConsole
 
         public static void oRotationY(Cube cube)
         {
-            if (cube.topC == Color.Yellow || cube.frontC == Color.White)
+            if (cube.topC == Color.Yellow)
             {
                 cube.frontC = Modulo.sColorMod(cube.frontC - 1);
             }
-            else if (cube.topC == Color.White || cube.frontC == Color.Yellow)
+            else if (cube.topC == Color.White)
             {
                 cube.frontC = Modulo.sColorMod(cube.frontC + 1);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                cube.frontC = Modulo.sColorMod(cube.topC + 1);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                cube.frontC = Modulo.sColorMod(cube.topC - 1);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -698,13 +618,21 @@ namespace RCSConsole
 
         public static void RotationZ(Cube cube)
         {
-            if (cube.topC == Color.Yellow || cube.frontC == Color.White)
+            if (cube.topC == Color.Yellow)
             {
                 cube.topC = Modulo.sColorMod(cube.frontC - 1);
             }
-            else if (cube.topC == Color.White || cube.frontC == Color.Yellow)
+            else if (cube.topC == Color.White)
             {
                 cube.topC = Modulo.sColorMod(cube.frontC + 1);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                cube.topC = Modulo.sColorMod(cube.topC + 1);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                cube.topC = Modulo.sColorMod(cube.topC - 1);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
@@ -719,13 +647,21 @@ namespace RCSConsole
 
         public static void oRotationZ(Cube cube)
         {
-            if (cube.topC == Color.Yellow || cube.frontC == Color.White)
+            if (cube.topC == Color.Yellow)
             {
                 cube.topC = Modulo.sColorMod(cube.frontC + 1);
             }
-            else if (cube.topC == Color.White || cube.frontC == Color.Yellow)
+            else if (cube.topC == Color.White)
             {
                 cube.topC = Modulo.sColorMod(cube.frontC - 1);
+            }
+            else if (cube.frontC == Color.Yellow)
+            {
+                cube.topC = Modulo.sColorMod(cube.topC - 1);
+            }
+            else if (cube.frontC == Color.White)
+            {
+                cube.topC = Modulo.sColorMod(cube.topC + 1);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
