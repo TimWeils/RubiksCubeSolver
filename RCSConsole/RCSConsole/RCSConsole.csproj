@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="ColorPair.cs" />
+    <Compile Include="CornerPosition.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubePiece.cs" />
     <Compile Include="Modulo.cs" />
@@ -53,6 +56,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="Side.cs" />
+    <Compile Include="Solution.cs" />
+    <Compile Include="Step.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

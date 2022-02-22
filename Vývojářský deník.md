@@ -32,3 +32,28 @@ Následně jsem se pustil do psaní vylepšené verze vypisování. Nyní se kos
 Jako další jsem dnes naimplementoval funkci, která dokáže načíst do paměti kostku na základě hodnot od uživatele. Vzhledem k tomu, že se stejně bude aplikace přesouvat z konzole do jiného UI, tak je implementace velice primitivní. Nijak nekontroluje správnost vstupu a tak to i zůstane. Přijde mi zbytečné nad tím v tuto chvíli ztrácet čas. Ošetření nevhodných vstupů tak bude implementováno až s novým UI.
 
 Plán na další dny je jasný, implementace algoritmů pro skládání kostky dle návodu pro začátečníky. Jako první mě čeká algoritmus na White Cross.
+
+### 5.den
+Měl jsem začít s implementací White Cross algoritmu. Z obav, že je to až moc náročný úkol, který bude vyžadovat komplikované rešení jsem se ale dnes věnoval úplně něčemu jinému. A to konkrétně UI.
+
+Od začátku jsem plánoval, že půjde o okenní aplikaci s klasickým GUI nikoliv o pouhou konzolovou záležitost. A tak jsem měl v hlavě problém, který bylo třeba vyřešit. Jakým způsobem uživateli zobrazit samotnou kostku, kterou se snaží s pomocí programu složit. Jako první mě napadlo kostku rozložit na síť a tu uživateli zobrazit. Záhy jsem ale zjistil, že to rozhodně není moc elegantní řešení. V takovémto zobrazení se totiž snadno ztratí pohyby barev při otáčení kostkou. Navíc by pohyb probíhal na více místech v jeden okamžik a ještě různými směry. Zároveň by bylo komplikované uživateli ukazovat, kde a v jakém směru se bude s kostkou pohybovat. Navíc síťové zobrazení by mohlo být hodně nepřehledné pro lidi bez prostorové představivosti. Spojit si v hlavě síť v kostku by jim činilo obtíže a mohlo by jim to zcela znemožnit či znechutit používání aplikace.
+
+Asi nejelegantnější řešení, které se nabízelo dále byl 3D model. Model by byl hezky přehledný a pro zobrazení kostky zcela ideální. Bohužel i zde se objevil menší problém. Pokud by šlo pouze o model s barvami tak by se pohyby na kostce mohly snadno ztrácet. Tento problém by jistě vyřešily animace modelu pro pohyb kostky. Indikaci zamýšleného pohybu by pak například šlo realizovat podsvícením či pulzováním dílů, které se budou pohybu účastnit. Kde je tedy problém tohoto řešení? Obávám se, že je až příliš náročné na zpracování. O 3D grafice toho nevím úplně mnoho a nikdy jsem 3D grafiku nedělal od píky. A o animaci toho také nevím mnoho. A proto bych si nejspíš musel hodně věcí nastudovat než bych byl schopný nějaký povedený a funkční 3D model vytvořit.
+
+Jak tedy kostku uživateli zobrazit? Nakonec jsem přišel s tímto nápadem. Uživatel uvidí v rámci GUI pouze jednu stěnu kostky. Ostatní mu budou skryty. Mezi jednotlivými stěnami však půjde přepínat a uživatel tak bude moci s tímto 2D náhledem kostky rotovat. Navíc nebude obtížné naznačovat směry rotací, které má uživatel provést. Jednoduše se kolem náhledu budou ukazovat šipky naznačující směr rotace. Rotace, které se budou odehrávat na kostkách mimo náhled (například B rotace) budou naznačeny také šipkami, ale odlišnými od těch značících rotaci na zobrazované stěně (například rotace F). Prvotní návrh toho jak bych si takové GUI představoval lze nalézt v Gitu jako obrázek *GUI Concept v1.jpg*. Pod samotným 2D náhledem je pak prostor pro zobrazení textu, který bude uživateli říkat jaká rotace se provádí a přidá i doprovodný text popisující rotaci (proč se dělá, jaký je její cíl). Tlačítka po stranách umožní uživateli procházet jednotlivé kroky řešení. Když nad tím teď přemýšlím, možná by nebylo od věci mít k dispozici i tlačítko na přeskočení daného úseku řešení (například pokud chci přeskočit White Cross, protože ho již zvládnu sám). Toto je tedy prozatím můj hrubý návrh toho jak by mohlo GUI vypadat. Přiznávám, že nejde o nejlepší možné řešení, ale přijde mi že nebude těžké ho naimplementovat a pomůže uživateli se na kostce dobře (z)orientovat.
+
+Je zde však jedna věc, kterou ještě nemám úplně vyřešenou. Pokud bude uživatel náhledem rotovat měly by se v textovém poli upravovat rotace tak aby seděly na novou orientaci kostky? Nebo by měly zůstat stejné? Nebude to ale uživatele mást? Pomocné šipky by se totiž měly měnit určitě. A nehodilo by se tedy mít po ruce tlačítko, které by vrátilo náhled do původní polohy?
+
+To jsou otázky, které budu muset časem vyřešit. Myslím, že správnou odpověď na ně najdu až během implementace GUI.
+
+### 6.den
+
+Tento den jsem se konečně odhodlal k vypracování algoritmu na White Cross. Přes prvotní peripetie, kdy jsem si moc nevěděl rady jak problém řešit jsem se nakonec uchýlil ke stromu všech možných řešení. V programu tedy simuluji všechny možnosti řešení White Crossu a nakonec vybírám to které obsahuje nejméně pohybů kostkou.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
+
+### 7.den
+
+Tento den jsem se pustil do další části řešícího algoritmu. Tentokrát to byl algoritmus na White Corners. Základní myšlenka implementace zůstala stejná jako u White Crossu. Přišlo mi, že i zde jde o dobré řešení.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
