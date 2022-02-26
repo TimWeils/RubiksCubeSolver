@@ -22,8 +22,10 @@ namespace RCSConsole
             Console.WriteLine();
 
             Solution s;
+
+            // White Cross
             /**/
-            s = Algorithms.WhiteCross(cube);
+            s = Algorithms.DaisyWhiteCross(cube);
             ApplySolution(cube, s);
             Console.WriteLine("White Cross step-by-step:");
             foreach (Step step in s.steps)
@@ -35,8 +37,15 @@ namespace RCSConsole
 
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
             /**/
 
+            // White Corners
+            /**/
             s = Algorithms.WhiteCorners(cube);
             ApplySolution(cube, s);
             Console.WriteLine("White Corners step-by-step:");
@@ -49,6 +58,117 @@ namespace RCSConsole
 
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            // Middle Edges
+            // !!WARNING!! This algorithm will work only if White Cross is already solved
+            /**/
+            s = Algorithms.MiddleEdges(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("Middle Edges step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            // Yellow Cross
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            /**/
+            s = Algorithms.YellowCross(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("Yellow Cross step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            // Yellow Side
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            /**/
+            s = Algorithms.YellowSide(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("Yellow Side step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            // Yellow Corners
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            /**/
+            s = Algorithms.YellowCorners(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("Yellow Corners step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            // Yellow Edges
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            /**/
+            s = Algorithms.YellowEdges(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("Yellow Edges step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
 
             Printer.PrintCube(cube);
             Console.ReadLine();

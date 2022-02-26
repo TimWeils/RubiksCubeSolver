@@ -49,6 +49,7 @@
     <Compile Include="CornerPosition.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubePiece.cs" />
+    <Compile Include="EdgePosition.cs" />
     <Compile Include="Modulo.cs" />
     <Compile Include="Moves.cs" />
     <Compile Include="Printer.cs" />

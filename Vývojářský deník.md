@@ -22,7 +22,7 @@ Dnes tedy končím s rozpracovanou implementací pohybu. Díky chybám v základ
 ### 3. den
 Podle plánu z minula jsem se vrhnul na opravu a doimplementování pohybů. Začal jsem tím, že jsem všechny pohyby převedl tak, aby využívaly pouze implementaci pohybů yU, yD, yR a jejich inverzí. Během toho jsem narazil na pár chyb v mém dosavadním kódu. V rámci vypisování kostky jsem barvu stěny četl ze špatného políčka na stěně. V rámci implementace R (a inverzního R) jsem indexoval políčka na zadní straně obráceně (0, 3, 6 namísto 6, 3, 0). Chyba nebyla zřejmá protože pohyby testuji na složené kostce a zatím je moc nekombinuji. Indexaci jsem upravil a doplnil i funkce které na základě barvy přední strany kostky vrátí příslušné indexy na žluté a bílé stěně kostky tak, aby bylo možné provést R (a jeho inverzi). Následně jsem začal implementovat zbylé pohyby. Během jejich implementace jsem zjistil, že v rámci L a R pohybů (a jejich inverzí) nezohledňuji případ, kdy je žlutá či bílá barva na přední stěně. Případy jsem lehce ošetřil a pokračoval v implementaci. Po dokončení jsem se pustil do testování sekvencí pohybů. Hned jsem ale narazil na problém. Při implementaci pohybů yU, yD a yR (a jejich inverzí) totiž nerotuji s políčky na rotovaných stěnách (při pohybu U se políčka na horní stěně neotočí kolem středu). Doteď jsem si toho nevšiml kvůli tomu, že pohyby testuji na složené kostce (jak jsem již zmiňoval výše). Tuto chybu budu opravovat až příště. Společně s tím na mě čeká implementace lepšího vypsaní kostky, kterou jsem avizoval již minule.
 
-### 4.den
+### 4. den
 Začal jsem opravou chyby z minula. Nebylo to nic náročného. Zároveň jsem během opravování udělal pár vylepšení v kódu. Funkce rotace yR dříve vyžadovala barvu přední a zadní stěny kostky. Ukázalo se však, že po opravení chyby by bylo zapotřebí vyžadovat i barvu pravé stěny. Kód byl tedy upraven tak, že funkce vyžaduje pouze barvu přední stěny. Zbylé barvy si dopočítá sama. Zároveň jsem přesunul funkce počítající souřadnice na žluté a bílé stěně (GetYCoordinates a GetWCoordinates) do samotné kostky a rozšířil je na celou stěnu. Toto sjednocené indexování mi jistě pomůže při psaní řešících algoritmů. Následně jsem otestoval jestli jsem se chyby zbavil. Bylo tomu skutečně tak, bohužel se ukázalo, že chyba se nachází i ve funkcích pro Y a Z rotaci. Náprava však nebyla složitá.
 
 Provedl jsem také vyčištění kódu. Zbavil jsem se zakomentovaných sekcí, které používaly složitější variantu ukládání kostky v paměti. Zbavil jsem se i tříd, které tuto variantu uložení podporovaly. S rostoucí velikostí kódu by bylo složité se k této variantě vracet a přijde mi, že se obejdu i bez ní.
@@ -33,7 +33,7 @@ Jako další jsem dnes naimplementoval funkci, která dokáže načíst do pamě
 
 Plán na další dny je jasný, implementace algoritmů pro skládání kostky dle návodu pro začátečníky. Jako první mě čeká algoritmus na White Cross.
 
-### 5.den
+### 5. den
 Měl jsem začít s implementací White Cross algoritmu. Z obav, že je to až moc náročný úkol, který bude vyžadovat komplikované rešení jsem se ale dnes věnoval úplně něčemu jinému. A to konkrétně UI.
 
 Od začátku jsem plánoval, že půjde o okenní aplikaci s klasickým GUI nikoliv o pouhou konzolovou záležitost. A tak jsem měl v hlavě problém, který bylo třeba vyřešit. Jakým způsobem uživateli zobrazit samotnou kostku, kterou se snaží s pomocí programu složit. Jako první mě napadlo kostku rozložit na síť a tu uživateli zobrazit. Záhy jsem ale zjistil, že to rozhodně není moc elegantní řešení. V takovémto zobrazení se totiž snadno ztratí pohyby barev při otáčení kostkou. Navíc by pohyb probíhal na více místech v jeden okamžik a ještě různými směry. Zároveň by bylo komplikované uživateli ukazovat, kde a v jakém směru se bude s kostkou pohybovat. Navíc síťové zobrazení by mohlo být hodně nepřehledné pro lidi bez prostorové představivosti. Spojit si v hlavě síť v kostku by jim činilo obtíže a mohlo by jim to zcela znemožnit či znechutit používání aplikace.
@@ -46,14 +46,40 @@ Je zde však jedna věc, kterou ještě nemám úplně vyřešenou. Pokud bude u
 
 To jsou otázky, které budu muset časem vyřešit. Myslím, že správnou odpověď na ně najdu až během implementace GUI.
 
-### 6.den
+### 6. den
 
 Tento den jsem se konečně odhodlal k vypracování algoritmu na White Cross. Přes prvotní peripetie, kdy jsem si moc nevěděl rady jak problém řešit jsem se nakonec uchýlil ke stromu všech možných řešení. V programu tedy simuluji všechny možnosti řešení White Crossu a nakonec vybírám to které obsahuje nejméně pohybů kostkou.
 
 Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
 
-### 7.den
+### 7. den
 
 Tento den jsem se pustil do další části řešícího algoritmu. Tentokrát to byl algoritmus na White Corners. Základní myšlenka implementace zůstala stejná jako u White Crossu. Přišlo mi, že i zde jde o dobré řešení.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
+
+### 8. den
+
+Implementoval jsem algoritmus řešící hrany v prostřední vrstvě kostky. Zvolil jsem podobný postup jako u předchozího algoritmu.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
+
+### 9. den
+
+Zamýšlel jsem se nad otázkou jestli jsem při implementování jednotlivých kroků zvolil postup vhodný pro začátečníky. Ukázalo se, že moje řešení White Corners moc intuitivní a jednoduché není. Rozhodl jsem se ho tedy naimplementovat znovu, ale jednodušeji. To se mi podařilo.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
+
+### 10. den
+
+Po včerejších pochybách jsem se nakonec zamyslel i nad White Cross řešením a došel jsem k názoru, že ač je můj postup správný, pro úplného začátečníka (někoho, kdo skládá kostku poprvé) není úplně vhodný. Rozhold jsem se tedy naimplementovat novou jednodušší verzi tohoto algoritmu.
+
+Následně jsem se pustil do zbývajících algoritmů, které mi ještě chyběly. Během dne jsem stihl naimplementovat Yellow Cross a Yellow Side algoritmy, které slouží k naorientování žluté strany kostky. Stihl jsem také naimplementovat algoritmus, který žluté rohy správně nasměruje.
+
+Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.
+
+### 11. den
+
+Naimplementoval jsem poslední zbývající algoritmus, který správně umístí žluté hrany. Program je teď tedy schopný kompletně složit celou kostku. Následně jsem program odzkoušel a lehce upravil algoritmy. Nahradil jsem U pohyby sloužící k přesunutí daného dílku na přední stranu za y rotace. Nestane se mi pak, že bych si rozhodil již správně umístěný díl od své spodní části. Následně jsem pomocí programu zkusil složit další kostky. Všechny byly úspěšně složeny nicméně to nezaručuje, že v programu není chyba. Je možné, že na ni akorát program nenarazil.
 
 Tento souhrn je zkrácený protože mám ke dni detailní poznámky na papíře.

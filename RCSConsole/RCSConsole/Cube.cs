@@ -63,5 +63,59 @@ namespace RCSConsole
                     return new int[] { };
             }
         }
+
+        // Return position of the left edge for the given edge position
+        public static int GetLeftEdgePosition(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    return 5;
+                case 3:
+                    return 1;
+                case 5:
+                    return 7;
+                case 7:
+                    return 3;
+                default:
+                    return -1;
+            }
+        }
+
+        // Return position of the right edge for the given edge position
+        public static int GetRightEdgePosition(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    return 3;
+                case 3:
+                    return 7;
+                case 5:
+                    return 1;
+                case 7:
+                    return 5;
+                default:
+                    return -1;
+            }
+        }
+
+        // Return position of the opposite edge for the given edge position
+        public static int GetOppositeEdgePosition(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    return 7;
+                case 3:
+                    return 5;
+                case 5:
+                    return 3;
+                case 7:
+                    return 1;
+                default:
+                    return -1;
+            }
+        }
     }
 }
