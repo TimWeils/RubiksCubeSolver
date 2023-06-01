@@ -8,7 +8,12 @@ namespace RCSConsole
 {
     class Step
     {
-        public string move;
+        public Move move;
         public string text;
+
+        public Step(Move move)
+        {
+            this.move = move;
+        }
     }
 }

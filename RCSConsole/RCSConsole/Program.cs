@@ -30,7 +30,7 @@ namespace RCSConsole
             Console.WriteLine("White Cross step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -51,7 +51,7 @@ namespace RCSConsole
             Console.WriteLine("White Corners step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -73,7 +73,7 @@ namespace RCSConsole
             Console.WriteLine("Middle Edges step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -89,13 +89,13 @@ namespace RCSConsole
 
             // Yellow Cross
             // !!WARNING!! This algorithm will work only if all previous steps were executed
-            /**/
+            /*/
             s = Algorithms.YellowCross(cube);
             ApplySolution(cube, s);
             Console.WriteLine("Yellow Cross step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -107,17 +107,15 @@ namespace RCSConsole
 
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine();
-            /**/
 
             // Yellow Side
             // !!WARNING!! This algorithm will work only if all previous steps were executed
-            /**/
             s = Algorithms.YellowSide(cube);
             ApplySolution(cube, s);
             Console.WriteLine("Yellow Side step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -129,17 +127,15 @@ namespace RCSConsole
 
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine();
-            /**/
 
             // Yellow Corners
             // !!WARNING!! This algorithm will work only if all previous steps were executed
-            /**/
             s = Algorithms.YellowCorners(cube);
             ApplySolution(cube, s);
             Console.WriteLine("Yellow Corners step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -151,17 +147,52 @@ namespace RCSConsole
 
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine();
-            /**/
 
             // Yellow Edges
             // !!WARNING!! This algorithm will work only if all previous steps were executed
-            /**/
             s = Algorithms.YellowEdges(cube);
             ApplySolution(cube, s);
             Console.WriteLine("Yellow Edges step-by-step:");
             foreach (Step step in s.steps)
             {
-                Console.Write(step.move + " ");
+                Console.Write(step.move.ToCustomString() + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+            /**/
+
+            /**/
+            // 2L OLL
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            s = Algorithms.TLOLL(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("2L OLL step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move.ToCustomString() + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            Printer.PrintCube(cube);
+
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine();
+
+            // 2L PLL
+            // !!WARNING!! This algorithm will work only if all previous steps were executed
+            s = Algorithms.TLPLL(cube);
+            ApplySolution(cube, s);
+            Console.WriteLine("2L PLL step-by-step:");
+            foreach (Step step in s.steps)
+            {
+                Console.Write(step.move.ToCustomString() + " ");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -209,166 +240,166 @@ namespace RCSConsole
             {
                 switch (step.move)
                 {
-                    case "U":
+                    case Move.U:
                         Moves.U(cube);
                         break;
-                    case "U'":
-                        Moves.oU(cube);
+                    case Move.Up:
+                        Moves.Up(cube);
                         break;
-                    case "D":
+                    case Move.D:
                         Moves.D(cube);
                         break;
-                    case "D'":
-                        Moves.oD(cube);
+                    case Move.Dp:
+                        Moves.Dp(cube);
                         break;
-                    case "R":
+                    case Move.R:
                         Moves.R(cube);
                         break;
-                    case "R'":
-                        Moves.oR(cube);
+                    case Move.Rp:
+                        Moves.Rp(cube);
                         break;
-                    case "L":
+                    case Move.L:
                         Moves.L(cube);
                         break;
-                    case "L'":
-                        Moves.oL(cube);
+                    case Move.Lp:
+                        Moves.Lp(cube);
                         break;
-                    case "F":
+                    case Move.F:
                         Moves.F(cube);
                         break;
-                    case "F'":
-                        Moves.oF(cube);
+                    case Move.Fp:
+                        Moves.Fp(cube);
                         break;
-                    case "B":
+                    case Move.B:
                         Moves.B(cube);
                         break;
-                    case "B'":
-                        Moves.oB(cube);
+                    case Move.Bp:
+                        Moves.Bp(cube);
                         break;
-                    case "U2":
+                    case Move.U2:
                         Moves.U2(cube);
                         break;
-                    case "D2":
+                    case Move.D2:
                         Moves.D2(cube);
                         break;
-                    case "R2":
+                    case Move.R2:
                         Moves.R2(cube);
                         break;
-                    case "L2":
+                    case Move.L2:
                         Moves.L2(cube);
                         break;
-                    case "F2":
+                    case Move.F2:
                         Moves.F2(cube);
                         break;
-                    case "B2":
+                    case Move.B2:
                         Moves.B2(cube);
                         break;
-                    case "x":
+                    case Move.RotationX:
                         Moves.RotationX(cube);
                         break;
-                    case "x'":
-                        Moves.oRotationX(cube);
+                    case Move.RotationXp:
+                        Moves.RotationXp(cube);
                         break;
-                    case "y":
+                    case Move.RotationY:
                         Moves.RotationY(cube);
                         break;
-                    case "y'":
-                        Moves.oRotationY(cube);
+                    case Move.RotationYp:
+                        Moves.RotationYp(cube);
                         break;
-                    case "z":
+                    case Move.RotationZ:
                         Moves.RotationZ(cube);
                         break;
-                    case "z'":
-                        Moves.oRotationZ(cube);
+                    case Move.RotationZp:
+                        Moves.RotationZp(cube);
                         break;
-                    case "x2":
+                    case Move.RotationX2:
                         Moves.RotationX2(cube);
                         break;
-                    case "y2":
+                    case Move.RotationY2:
                         Moves.RotationY2(cube);
                         break;
-                    case "z2":
+                    case Move.RotationZ2:
                         Moves.RotationZ2(cube);
                         break;
-                    case "Uw":
+                    case Move.Uw:
                         Moves.Uw(cube);
                         break;
-                    case "Uw'":
-                        Moves.oUw(cube);
+                    case Move.Uwp:
+                        Moves.Uwp(cube);
                         break;
-                    case "Dw":
+                    case Move.Dw:
                         Moves.Dw(cube);
                         break;
-                    case "Dw'":
-                        Moves.oDw(cube);
+                    case Move.Dwp:
+                        Moves.Dwp(cube);
                         break;
-                    case "Rw":
+                    case Move.Rw:
                         Moves.Rw(cube);
                         break;
-                    case "Rw'":
-                        Moves.oRw(cube);
+                    case Move.Rwp:
+                        Moves.Rwp(cube);
                         break;
-                    case "Lw":
+                    case Move.Lw:
                         Moves.Lw(cube);
                         break;
-                    case "Lw'":
-                        Moves.oLw(cube);
+                    case Move.Lwp:
+                        Moves.Lwp(cube);
                         break;
-                    case "Fw":
+                    case Move.Fw:
                         Moves.Fw(cube);
                         break;
-                    case "Fw'":
-                        Moves.oFw(cube);
+                    case Move.Fwp:
+                        Moves.Fwp(cube);
                         break;
-                    case "Bw":
+                    case Move.Bw:
                         Moves.Bw(cube);
                         break;
-                    case "Bw'":
-                        Moves.oBw(cube);
+                    case Move.Bwp:
+                        Moves.Bwp(cube);
                         break;
-                    case "Uw2":
+                    case Move.Uw2:
                         Moves.Uw2(cube);
                         break;
-                    case "Dw2":
+                    case Move.Dw2:
                         Moves.Dw2(cube);
                         break;
-                    case "Rw2":
+                    case Move.Rw2:
                         Moves.Rw2(cube);
                         break;
-                    case "Lw2":
+                    case Move.Lw2:
                         Moves.Lw2(cube);
                         break;
-                    case "Fw2":
+                    case Move.Fw2:
                         Moves.Fw2(cube);
                         break;
-                    case "Bw2":
+                    case Move.Bw2:
                         Moves.Bw2(cube);
                         break;
-                    case "M":
+                    case Move.M:
                         Moves.M(cube);
                         break;
-                    case "M'":
-                        Moves.oM(cube);
+                    case Move.Mp:
+                        Moves.Mp(cube);
                         break;
-                    case "E":
+                    case Move.E:
                         Moves.E(cube);
                         break;
-                    case "E'":
-                        Moves.oE(cube);
+                    case Move.Ep:
+                        Moves.Ep(cube);
                         break;
-                    case "S":
+                    case Move.S:
                         Moves.S(cube);
                         break;
-                    case "S'":
-                        Moves.oS(cube);
+                    case Move.Sp:
+                        Moves.Sp(cube);
                         break;
-                    case "M2":
+                    case Move.M2:
                         Moves.M2(cube);
                         break;
-                    case "E2":
+                    case Move.E2:
                         Moves.E2(cube);
                         break;
-                    case "S2":
+                    case Move.S2:
                         Moves.S2(cube);
                         break;
                 }

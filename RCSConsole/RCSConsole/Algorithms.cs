@@ -86,14 +86,12 @@ namespace RCSConsole
             // Front side - color
             if ((cube.sides[(int)c].pieces[3].Color == c) && (cube.sides[Modulo.sIntMod(c - 1)].pieces[5].Color == Color.White))
             {
-                Moves.oF(cube);
+                Moves.Fp(cube);
 
-                Step step = new Step();
-                step.move = "F'";
+                Step step = new Step(Move.Fp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -102,12 +100,10 @@ namespace RCSConsole
             {
                 Moves.F(cube);
 
-                Step step = new Step();
-                step.move = "F";
+                Step step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -116,12 +112,10 @@ namespace RCSConsole
             {
                 Moves.F2(cube);
 
-                Step step = new Step();
-                step.move = "F2";
+                Step step = new Step(Move.F2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -131,42 +125,34 @@ namespace RCSConsole
             {
                 Moves.F(cube);
 
-                Step step = new Step();
-                step.move = "F";
+                Step step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (remainingColors.Count != 3)
                 {
-                    Moves.oD(cube);
+                    Moves.Dp(cube);
 
-                    step = new Step();
-                    step.move = "D'";
+                    step = new Step(Move.Dp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 Moves.L(cube);
 
-                step = new Step();
-                step.move = "L";
+                step = new Step(Move.L);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -176,33 +162,27 @@ namespace RCSConsole
                 Step step;
                 if (remainingColors.Count != 3)
                 {
-                    Moves.oD(cube);
+                    Moves.Dp(cube);
 
-                    step = new Step();
-                    step.move = "D'";
+                    step = new Step(Move.Dp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 Moves.L(cube);
 
-                step = new Step();
-                step.move = "L";
+                step = new Step(Move.L);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -214,75 +194,61 @@ namespace RCSConsole
                 {
                     Moves.D(cube);
 
-                    step = new Step();
-                    step.move = "D";
+                    step = new Step(Move.D);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
-                Moves.oR(cube);
+                Moves.Rp(cube);
 
-                step = new Step();
-                step.move = "R'";
+                step = new Step(Move.Rp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oD(cube);
+                Moves.Dp(cube);
 
-                step = new Step();
-                step.move = "D'";
+                step = new Step(Move.Dp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
 
             if ((cube.sides[(int)c].pieces[1].Color == Color.White) && (cube.sides[4].pieces[Cube.GetYCoordinates(c)[7]].Color == c))
             {
-                Moves.oF(cube);
+                Moves.Fp(cube);
 
-                Step step = new Step();
-                step.move = "F'";
+                Step step = new Step(Move.Fp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (remainingColors.Count != 3)
                 {
-                    Moves.oD(cube);
+                    Moves.Dp(cube);
 
-                    step = new Step();
-                    step.move = "D'";
+                    step = new Step(Move.Dp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 Moves.L(cube);
 
-                step = new Step();
-                step.move = "L";
+                step = new Step(Move.L);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -293,65 +259,53 @@ namespace RCSConsole
                 Step step;
                 if (remainingColors.Count != 3)
                 {
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oD(cube);
+                    Moves.Dp(cube);
 
-                    step = new Step();
-                    step.move = "D'";
+                    step = new Step(Move.Dp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.L(cube);
 
-                    step = new Step();
-                    step.move = "L";
+                    step = new Step(Move.L);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
 
             if ((cube.sides[Modulo.sIntMod(c - 1)].pieces[1].Color == c) && (cube.sides[4].pieces[Cube.GetYCoordinates(c)[3]].Color == Color.White))
             {
-                Moves.oU(cube);
+                Moves.Up(cube);
 
-                Step step = new Step();
-                step.move = "U'";
+                Step step = new Step(Move.Up);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.F2(cube);
 
-                step = new Step();
-                step.move = "F2";
+                step = new Step(Move.F2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -359,23 +313,19 @@ namespace RCSConsole
             // Left side - white
             if ((cube.sides[Modulo.sIntMod(c - 1)].pieces[7].Color == Color.White) && (cube.sides[5].pieces[Cube.GetWCoordinates(c)[3]].Color == c))
             {
-                Moves.oL(cube);
+                Moves.Lp(cube);
 
-                Step step = new Step();
-                step.move = "L'";
+                Step step = new Step(Move.Lp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oF(cube);
+                Moves.Fp(cube);
 
-                step = new Step();
-                step.move = "F'";
+                step = new Step(Move.Fp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -384,32 +334,26 @@ namespace RCSConsole
             {
                 Moves.L(cube);
 
-                Step step = new Step();
-                step.move = "L";
+                Step step = new Step(Move.L);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oF(cube);
+                Moves.Fp(cube);
 
-                step = new Step();
-                step.move = "F'";
+                step = new Step(Move.Fp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (!remainingColors.Contains(Modulo.sColorMod(c - 1)))
                 {
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 return s;
@@ -423,40 +367,32 @@ namespace RCSConsole
                 {
                     Moves.R(cube);
 
-                    step = new Step();
-                    step.move = "R";
+                    step = new Step(Move.R);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.D(cube);
 
-                    step = new Step();
-                    step.move = "D";
+                    step = new Step(Move.D);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oR(cube);
+                    Moves.Rp(cube);
 
-                    step = new Step();
-                    step.move = "R'";
+                    step = new Step(Move.Rp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
-                Moves.oD(cube);
+                Moves.Dp(cube);
 
-                step = new Step();
-                step.move = "D'";
+                step = new Step(Move.Dp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -465,21 +401,17 @@ namespace RCSConsole
             {
                 Moves.U(cube);
 
-                Step step = new Step();
-                step.move = "U";
+                Step step = new Step(Move.U);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.F2(cube);
 
-                step = new Step();
-                step.move = "F2";
+                step = new Step(Move.F2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -489,55 +421,45 @@ namespace RCSConsole
             {
                 Moves.R(cube);
 
-                Step step = new Step();
-                step.move = "R";
+                Step step = new Step(Move.R);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.F(cube);
 
-                step = new Step();
-                step.move = "F";
+                step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
 
             if ((cube.sides[Modulo.sIntMod(c + 1)].pieces[1].Color == Color.White) && (cube.sides[4].pieces[Cube.GetYCoordinates(c)[5]].Color == c))
             {
-                Moves.oR(cube);
+                Moves.Rp(cube);
 
-                Step step = new Step();
-                step.move = "R'";
+                Step step = new Step(Move.Rp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.F(cube);
 
-                step = new Step();
-                step.move = "F";
+                step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (!remainingColors.Contains(Modulo.sColorMod(c + 1)))
                 {
                     Moves.R(cube);
 
-                    step = new Step();
-                    step.move = "R";
+                    step = new Step(Move.R);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 return s;
@@ -551,12 +473,10 @@ namespace RCSConsole
                 {
                     Moves.D2(cube);
 
-                    step = new Step();
-                    step.move = "D2";
+                    step = new Step(Move.D2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     return s;
                 }
@@ -565,92 +485,74 @@ namespace RCSConsole
                 {
                     Moves.B(cube);
 
-                    step = new Step();
-                    step.move = "B";
+                    step = new Step(Move.B);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.R2(cube);
 
-                    step = new Step();
-                    step.move = "R2";
+                    step = new Step(Move.R2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     Moves.F(cube);
 
-                    step = new Step();
-                    step.move = "F";
+                    step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     return s;
                 }
 
                 if (remainingColors.Contains(Modulo.sColorMod(c - 1)))
                 {
-                    Moves.oB(cube);
+                    Moves.Bp(cube);
 
-                    step = new Step();
-                    step.move = "B'";
+                    step = new Step(Move.Bp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.L2(cube);
 
-                    step = new Step();
-                    step.move = "L2";
+                    step = new Step(Move.L2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     return s;
                 }
 
                 Moves.B2(cube);
 
-                step = new Step();
-                step.move = "B2";
+                step = new Step(Move.B2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount +=2;
+                s.AddStep(step);
 
                 Moves.U2(cube);
 
-                step = new Step();
-                step.move = "U2";
+                step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 Moves.F2(cube);
 
-                step = new Step();
-                step.move = "F2";
+                step = new Step(Move.F2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -659,32 +561,26 @@ namespace RCSConsole
             {
                 Moves.R2(cube);
 
-                Step step = new Step();
-                step.move = "R2";
+                Step step = new Step(Move.R2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 Moves.F(cube);
 
-                step = new Step();
-                step.move = "F";
+                step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (!remainingColors.Contains(Modulo.sColorMod(c + 1)))
                 {
                     Moves.R2(cube);
 
-                    step = new Step();
-                    step.move = "R2";
+                    step = new Step(Move.R2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
 
                 return s;
@@ -694,32 +590,26 @@ namespace RCSConsole
             {
                 Moves.L2(cube);
 
-                Step step = new Step();
-                step.move = "L2";
+                Step step = new Step(Move.L2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
-                Moves.oF(cube);
+                Moves.Fp(cube);
 
-                step = new Step();
-                step.move = "F'";
+                step = new Step(Move.Fp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (!remainingColors.Contains(Modulo.sColorMod(c + 1)))
                 {
                     Moves.L2(cube);
 
-                    step = new Step();
-                    step.move = "L2";
+                    step = new Step(Move.L2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
 
                 return s;
@@ -729,21 +619,17 @@ namespace RCSConsole
             {
                 Moves.U2(cube);
 
-                Step step = new Step();
-                step.move = "U2";
+                Step step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 Moves.F2(cube);
 
-                step = new Step();
-                step.move = "F2";
+                step = new Step(Move.F2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -753,39 +639,31 @@ namespace RCSConsole
             {
                 Moves.B(cube);
 
-                Step step = new Step();
-                step.move = "B";
+                Step step = new Step(Move.B);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.R(cube);
 
-                step = new Step();
-                step.move = "R";
+                step = new Step(Move.R);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oD(cube);
+                Moves.Dp(cube);
 
-                step = new Step();
-                step.move = "D'";
+                step = new Step(Move.Dp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -797,31 +675,25 @@ namespace RCSConsole
                 {
                     Moves.D(cube);
 
-                    step = new Step();
-                    step.move = "D";
+                    step = new Step(Move.D);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 Moves.R(cube);
 
-                step = new Step();
-                step.move = "R";
+                step = new Step(Move.R);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oD(cube);
+                Moves.Dp(cube);
 
-                step = new Step();
-                step.move = "D'";
+                step = new Step(Move.Dp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -831,33 +703,27 @@ namespace RCSConsole
                 Step step;
                 if (remainingColors.Count != 3)
                 {
-                    Moves.oD(cube);
+                    Moves.Dp(cube);
 
-                    step = new Step();
-                    step.move = "D'";
+                    step = new Step(Move.Dp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
-                Moves.oL(cube);
+                Moves.Lp(cube);
 
-                step = new Step();
-                step.move = "L'";
+                step = new Step(Move.Lp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.D(cube);
 
-                step = new Step();
-                step.move = "D";
+                step = new Step(Move.D);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -867,73 +733,59 @@ namespace RCSConsole
                 Step step;
                 if (remainingColors.Contains(Modulo.sColorMod(c - 1)))
                 {
-                    Moves.oU(cube);
+                    Moves.Up(cube);
 
-                    step = new Step();
-                    step.move = "U'";
+                    step = new Step(Move.Up);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.L(cube);
 
-                    step = new Step();
-                    step.move = "L";
+                    step = new Step(Move.L);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     return s;
                 }
 
                 Moves.U(cube);
 
-                step = new Step();
-                step.move = "U";
+                step = new Step(Move.U);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
-                Moves.oR(cube);
+                Moves.Rp(cube);
 
-                step = new Step();
-                step.move = "R'";
+                step = new Step(Move.Rp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Moves.F(cube);
 
-                step = new Step();
-                step.move = "F";
+                step = new Step(Move.F);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (!remainingColors.Contains(Modulo.sColorMod(c + 1)))
                 {
                     Moves.R(cube);
 
-                    step = new Step();
-                    step.move = "R";
+                    step = new Step(Move.R);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
 
                 return s;
@@ -948,41 +800,35 @@ namespace RCSConsole
             Solution s = new Solution();
             if (c == cube.frontC)
             {
-               
+
             }
             else if (c == Modulo.sColorMod(cube.frontC + 1))
             {
                 Moves.RotationY(cube);
 
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
             }
             else if (c == Modulo.sColorMod(cube.frontC + 2))
             {
                 Moves.RotationY2(cube);
 
-                Step step = new Step();
-                step.move = "y2";
+                Step step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (c == Modulo.sColorMod(cube.frontC - 1))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                Step step = new Step();
-                step.move = "y'";
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             return s;
         }
@@ -991,6 +837,7 @@ namespace RCSConsole
         {
             // We don't check if any part of White Cross is already solved
             // It doesn't make much sence in this algorithm
+            // Since we are creating Daisy and then we turn it into WC
             List<Color> colorsToComplete = new List<Color> { Color.Red, Color.Green, Color.Orange, Color.Blue };
             return DWCrossFindBestSolution(cube, colorsToComplete);
         }
@@ -1037,32 +884,26 @@ namespace RCSConsole
                 if (orientation == Color.White)
                 {
                     // Flip the edge piece and insert it back to its position
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    Step step = new Step();
-                    step.move = "F'";
+                    Step step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1071,44 +912,36 @@ namespace RCSConsole
             }
             else if (CheckEdge(cube, EdgePosition.UL, cp, out orientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                Step step = new Step();
-                step.move = "y'";
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
                     // Flip the edge piece and insert it back to its position
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1119,42 +952,34 @@ namespace RCSConsole
             {
                 Moves.RotationY(cube);
 
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
                     // Flip the edge piece and insert it back to its position
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1165,42 +990,34 @@ namespace RCSConsole
             {
                 Moves.RotationY2(cube);
 
-                Step step = new Step();
-                step.move = "y2";
+                Step step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
                     // Flip the edge piece and insert it back to its position
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1215,14 +1032,12 @@ namespace RCSConsole
                     s.steps.AddRange(freeDaisy.steps);
                     s.turnsCount += freeDaisy.turnsCount;
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    Step step = new Step();
-                    step.move = "L'";
+                    Step step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1232,12 +1047,10 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    Step step = new Step();
-                    step.move = "F";
+                    Step step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.MFR, cp, out orientation))
@@ -1250,12 +1063,10 @@ namespace RCSConsole
 
                     Moves.R(cube);
 
-                    Step step = new Step();
-                    step.move = "R";
+                    Step step = new Step(Move.R);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1263,26 +1074,22 @@ namespace RCSConsole
                     s.steps.AddRange(freeDaisy.steps);
                     s.turnsCount += freeDaisy.turnsCount;
 
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    Step step = new Step();
-                    step.move = "F'";
+                    Step step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.MBL, cp, out orientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                Step step = new Step();
-                step.move = "y'";
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
@@ -1292,12 +1099,10 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    step = new Step();
-                    step.move = "F";
+                    step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1305,26 +1110,22 @@ namespace RCSConsole
                     s.steps.AddRange(freeDaisy.steps);
                     s.turnsCount += freeDaisy.turnsCount;
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.MBR, cp, out orientation))
             {
                 Moves.RotationY(cube);
 
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
@@ -1332,14 +1133,12 @@ namespace RCSConsole
                     s.steps.AddRange(freeDaisy.steps);
                     s.turnsCount += freeDaisy.turnsCount;
 
-                    Moves.oF(cube);
+                    Moves.Fp(cube);
 
-                    step = new Step();
-                    step.move = "F'";
+                    step = new Step(Move.Fp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1349,12 +1148,10 @@ namespace RCSConsole
 
                     Moves.R(cube);
 
-                    step = new Step();
-                    step.move = "R";
+                    step = new Step(Move.R);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.DM, cp, out orientation))
@@ -1367,30 +1164,24 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    Step step = new Step();
-                    step.move = "F";
+                    Step step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1400,24 +1191,20 @@ namespace RCSConsole
 
                     Moves.F2(cube);
 
-                    Step step = new Step();
-                    step.move = "F2";
+                    Step step = new Step(Move.F2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount +=2;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.DL, cp, out orientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                Step step = new Step();
-                step.move = "y'";
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
@@ -1427,30 +1214,24 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    step = new Step();
-                    step.move = "F";
+                    step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1460,24 +1241,20 @@ namespace RCSConsole
 
                     Moves.F2(cube);
 
-                    step = new Step();
-                    step.move = "F2";
+                    step = new Step(Move.F2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.DR, cp, out orientation))
             {
                 Moves.RotationY(cube);
 
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
@@ -1487,30 +1264,24 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    step = new Step();
-                    step.move = "F";
+                    step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1520,24 +1291,20 @@ namespace RCSConsole
 
                     Moves.F2(cube);
 
-                    step = new Step();
-                    step.move = "F2";
+                    step = new Step(Move.F2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
             }
             else if (CheckEdge(cube, EdgePosition.DB, cp, out orientation))
             {
                 Moves.RotationY2(cube);
 
-                Step step = new Step();
-                step.move = "y2";
+                Step step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 if (orientation == Color.White)
                 {
@@ -1547,30 +1314,24 @@ namespace RCSConsole
 
                     Moves.F(cube);
 
-                    step = new Step();
-                    step.move = "F";
+                    step = new Step(Move.F);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
-                    Moves.oL(cube);
+                    Moves.Lp(cube);
 
-                    step = new Step();
-                    step.move = "L'";
+                    step = new Step(Move.Lp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else
                 {
@@ -1580,12 +1341,10 @@ namespace RCSConsole
 
                     Moves.F2(cube);
 
-                    step = new Step();
-                    step.move = "F2";
+                    step = new Step(Move.F2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
             }
 
@@ -1606,57 +1365,47 @@ namespace RCSConsole
                     {
                         Moves.Dw(cube);
 
-                        step = new Step();
-                        step.move = "Dw";
+                        step = new Step(Move.Dw);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
                     }
                     else if (Modulo.sColorMod(cube.frontC + 1) == daisyColor)
                     {
-                        Moves.oDw(cube);
+                        Moves.Dwp(cube);
 
-                        step = new Step();
-                        step.move = "Dw'";
+                        step = new Step(Move.Dwp);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
                     }
                     else
                     {
                         Moves.Dw2(cube);
 
-                        step = new Step();
-                        step.move = "Dw2";
+                        step = new Step(Move.Dw2);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount += 2;
+                        s.AddStep(step);
                     }
 
                     // Insert the piece to the cross
                     Moves.F2(cube);
 
-                    step = new Step();
-                    step.move = "F2";
+                    step = new Step(Move.F2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     if (i != 3)
                     {
                         // Move to the next color
                         Moves.RotationY(cube);
 
-                        step = new Step();
-                        step.move = "y";
+                        step = new Step(Move.RotationY);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
                     }
                 }
             }
@@ -1678,14 +1427,12 @@ namespace RCSConsole
                 if (cube.sides[4].pieces[yellowCoords[Cube.GetLeftEdgePosition(position)]].Color != Color.White)
                 {
                     // Position is not free but the one on the left is
-                    Moves.oU(cube);
+                    Moves.Up(cube);
 
-                    Step step = new Step();
-                    step.move = "U'";
+                    Step step = new Step(Move.Up);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     return s;
                 }
@@ -1694,12 +1441,10 @@ namespace RCSConsole
                     // Position is not free but the one on the right is
                     Moves.U(cube);
 
-                    Step step = new Step();
-                    step.move = "U";
+                    Step step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     return s;
                 }
@@ -1708,12 +1453,10 @@ namespace RCSConsole
                     // Position is not free but the opposite one is
                     Moves.U2(cube);
 
-                    Step step = new Step();
-                    step.move = "U2";
+                    Step step = new Step(Move.U2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     return s;
                 }
@@ -2363,34 +2106,28 @@ namespace RCSConsole
             {
                 Moves.RotationY(cube);
 
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (CheckCorner(cube, CornerPosition.UBL, cp, out cornerOrientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                Step step = new Step();
-                step.move = "y'";
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (CheckCorner(cube, CornerPosition.UBR, cp, out cornerOrientation))
             {
                 Moves.RotationY2(cube);
 
-                Step step = new Step();
-                step.move = "y2";
+                Step step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (CheckCorner(cube, CornerPosition.DFL, cp, out cornerOrientation))
             {
@@ -2402,12 +2139,10 @@ namespace RCSConsole
 
                     Moves.U(cube);
 
-                    Step step = new Step();
-                    step.move = "U";
+                    Step step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Fix orientation
                     cornerOrientation = cp.c2;
@@ -2432,12 +2167,10 @@ namespace RCSConsole
             else if (CheckCorner(cube, CornerPosition.DFR, cp, out cornerOrientation))
             {
                 Moves.RotationY(cube);
-                Step step = new Step();
-                step.move = "y";
+                Step step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (cornerOrientation == cp.c1)
                 {
@@ -2447,12 +2180,10 @@ namespace RCSConsole
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Fix orientation
                     cornerOrientation = cp.c2;
@@ -2476,13 +2207,12 @@ namespace RCSConsole
             }
             else if (CheckCorner(cube, CornerPosition.DBL, cp, out cornerOrientation))
             {
-                Moves.oRotationY(cube);
-                Step step = new Step();
-                step.move = "y'";
+                Moves.RotationYp(cube);
+
+                Step step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 if (cornerOrientation == cp.c1)
                 {
@@ -2492,12 +2222,10 @@ namespace RCSConsole
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Fix orientation
                     cornerOrientation = cp.c2;
@@ -2522,12 +2250,10 @@ namespace RCSConsole
             else if (CheckCorner(cube, CornerPosition.DBR, cp, out cornerOrientation))
             {
                 Moves.RotationY2(cube);
-                Step step = new Step();
-                step.move = "y2";
+                Step step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 if (cornerOrientation == cp.c1)
                 {
@@ -2537,12 +2263,10 @@ namespace RCSConsole
 
                     Moves.U(cube);
 
-                    step = new Step();
-                    step.move = "U";
+                    step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Fix orientation
                     cornerOrientation = cp.c2;
@@ -2575,34 +2299,28 @@ namespace RCSConsole
             {
                 Moves.Dw(cube);
 
-                Step step = new Step();
-                step.move = "Dw";
+                Step step = new Step(Move.Dw);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (Modulo.sColorMod(cube.frontC + 1) == cp.c1)
             {
-                Moves.oDw(cube);
+                Moves.Dwp(cube);
 
-                Step step = new Step();
-                step.move = "Dw'";
+                Step step = new Step(Move.Dwp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else
             {
                 Moves.Dw2(cube);
 
-                Step step = new Step();
-                step.move = "Dw2";
+                Step step = new Step(Move.Dw2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
 
             // According to orientation execute one of the 3 algorithms
@@ -2636,41 +2354,33 @@ namespace RCSConsole
         {
             Solution s = new Solution();
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            Step step = new Step();
-            step.move = "U'";
+            Step step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            step = new Step();
-            step.move = "L'";
+            step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -2679,32 +2389,26 @@ namespace RCSConsole
         {
             Solution s = new Solution();
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            Step step = new Step();
-            step.move = "L'";
+            Step step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -2713,68 +2417,54 @@ namespace RCSConsole
         {
             Solution s = new Solution();
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            Step step = new Step();
-            step.move = "L'";
+            Step step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U2(cube);
 
-            step = new Step();
-            step.move = "U2";
+            step = new Step(Move.U2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            step = new Step();
-            step.move = "L'";
+            step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -2783,32 +2473,26 @@ namespace RCSConsole
         {
             Solution s = new Solution();
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            Step step = new Step();
-            step.move = "L'";
+            Step step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -3122,36 +2806,30 @@ namespace RCSConsole
             // We don't need to check UF since we don't need to do anything in this situation
             if (CheckEdge(cube, EdgePosition.UL, cp, out orientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                step = new Step();
-                step.move = "y'";
+                step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.UR, cp, out orientation))
             {
                 Moves.RotationY(cube);
 
-                step = new Step();
-                step.move = "y";
+                step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.UB, cp, out orientation))
             {
                 Moves.RotationY2(cube);
 
-                step = new Step();
-                step.move = "y2";
+                step = new Step(Move.RotationY2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.MFL, cp, out orientation))
             {
@@ -3161,12 +2839,10 @@ namespace RCSConsole
 
                 Moves.U2(cube);
 
-                step = new Step();
-                step.move = "U2";
+                step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.MFR, cp, out orientation))
             {
@@ -3176,23 +2852,19 @@ namespace RCSConsole
 
                 Moves.U2(cube);
 
-                step = new Step();
-                step.move = "U2";
+                step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.MBL, cp, out orientation))
             {
-                Moves.oRotationY(cube);
+                Moves.RotationYp(cube);
 
-                step = new Step();
-                step.move = "y'";
+                step = new Step(Move.RotationYp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Solution moveEdge = ChangeLeftEdge(cube, false);
                 s.steps.AddRange(moveEdge.steps);
@@ -3200,23 +2872,19 @@ namespace RCSConsole
 
                 Moves.U2(cube);
 
-                step = new Step();
-                step.move = "U2";
+                step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
             else if (CheckEdge(cube, EdgePosition.MBR, cp, out orientation))
             {
                 Moves.RotationY(cube);
 
-                step = new Step();
-                step.move = "y";
+                step = new Step(Move.RotationY);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 Solution moveEdge = ChangeRightEdge(cube, false);
                 s.steps.AddRange(moveEdge.steps);
@@ -3224,12 +2892,10 @@ namespace RCSConsole
 
                 Moves.U2(cube);
 
-                step = new Step();
-                step.move = "U2";
+                step = new Step(Move.U2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
 
             // Find the correspondig bottom for the given edge on front
@@ -3243,34 +2909,28 @@ namespace RCSConsole
             {
                 Moves.Dw(cube);
 
-                step = new Step();
-                step.move = "Dw";
+                step = new Step(Move.Dw);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else if (Modulo.sColorMod(cube.frontC + 1) == edgeFrontColor)
             {
-                Moves.oDw(cube);
+                Moves.Dwp(cube);
 
-                step = new Step();
-                step.move = "Dw'";
+                step = new Step(Move.Dwp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else
             {
                 Moves.Dw2(cube);
 
-                step = new Step();
-                step.move = "Dw2";
+                step = new Step(Move.Dw2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
             }
 
             // Insert the edge to the correct side
@@ -3298,78 +2958,62 @@ namespace RCSConsole
 
             if (insertFrontEdge)
             {
-                Moves.oU(cube);
+                Moves.Up(cube);
 
-                step = new Step();
-                step.move = "U'";
+                step = new Step(Move.Up);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            step = new Step();
-            step.move = "L'";
+            step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.F(cube);
 
-            step = new Step();
-            step.move = "F";
+            step = new Step(Move.F);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oF(cube);
+            Moves.Fp(cube);
 
-            step = new Step();
-            step.move = "F'";
+            step = new Step(Move.Fp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -3383,76 +3027,60 @@ namespace RCSConsole
             {
                 Moves.U(cube);
 
-                step = new Step();
-                step.move = "U";
+                step = new Step(Move.U);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oF(cube);
+            Moves.Fp(cube);
 
-            step = new Step();
-            step.move = "F'";
+            step = new Step(Move.Fp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.F(cube);
 
-            step = new Step();
-            step.move = "F";
+            step = new Step(Move.F);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -3705,12 +3333,10 @@ namespace RCSConsole
                     // Make it vertical
                     Moves.U(cCube);
 
-                    Step step = new Step();
-                    step.move = "U";
+                    Step step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Use appropriate algorithm
                     Solution next = YCrossAlg2(cCube);
@@ -3734,14 +3360,12 @@ namespace RCSConsole
                 else if (yellow[1] && yellow[5]) // L at the up right
                 {
                     // Shift it to the right position
-                    Moves.oU(cCube);
+                    Moves.Up(cCube);
 
-                    Step step = new Step();
-                    step.move = "U'";
+                    Step step = new Step(Move.Up);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Use appropriate algorithm
                     Solution next = YCrossAlg1(cCube);
@@ -3753,12 +3377,10 @@ namespace RCSConsole
                     // Shift it to the right position
                     Moves.U(cCube);
 
-                    Step step = new Step();
-                    step.move = "U";
+                    Step step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Use appropriate algorithm
                     Solution next = YCrossAlg1(cCube);
@@ -3770,12 +3392,10 @@ namespace RCSConsole
                     // Shift it to the right position
                     Moves.U2(cCube);
 
-                    Step step = new Step();
-                    step.move = "U2";
+                    Step step = new Step(Move.U2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use appropriate algorithm
                     Solution next = YCrossAlg1(cCube);
@@ -3816,57 +3436,45 @@ namespace RCSConsole
 
             Moves.F(cube);
 
-            Step step = new Step();
-            step.move = "F";
+            Step step = new Step(Move.F);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oF(cube);
+            Moves.Fp(cube);
 
-            step = new Step();
-            step.move = "F'";
+            step = new Step(Move.Fp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -3877,57 +3485,45 @@ namespace RCSConsole
 
             Moves.F(cube);
 
-            Step step = new Step();
-            step.move = "F";
+            Step step = new Step(Move.F);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oF(cube);
+            Moves.Fp(cube);
 
-            step = new Step();
-            step.move = "F'";
+            step = new Step(Move.Fp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -3971,12 +3567,10 @@ namespace RCSConsole
                         // Shift it to the right position
                         Moves.U(cCube);
 
-                        Step step = new Step();
-                        step.move = "U";
+                        Step step = new Step(Move.U);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -3988,12 +3582,10 @@ namespace RCSConsole
                         // Shift it to the right position
                         Moves.U2(cCube);
 
-                        Step step = new Step();
-                        step.move = "U2";
+                        Step step = new Step(Move.U2);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount += 2;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -4003,14 +3595,12 @@ namespace RCSConsole
                     else // Yellow on the back
                     {
                         // Shift it to the right position
-                        Moves.oU(cCube);
+                        Moves.Up(cCube);
 
-                        Step step = new Step();
-                        step.move = "U'";
+                        Step step = new Step(Move.Up);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -4030,14 +3620,12 @@ namespace RCSConsole
                     else if (cube.sides[Modulo.sIntMod(cube.frontC - 1)].pieces[0].Color == Color.Yellow) // Yellow on the left
                     {
                         // Shift it to the right position
-                        Moves.oU(cCube);
+                        Moves.Up(cCube);
 
-                        Step step = new Step();
-                        step.move = "U'";
+                        Step step = new Step(Move.Up);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -4049,12 +3637,10 @@ namespace RCSConsole
                         // Shift it to the right position
                         Moves.U(cCube);
 
-                        Step step = new Step();
-                        step.move = "U";
+                        Step step = new Step(Move.U);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount++;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -4066,12 +3652,10 @@ namespace RCSConsole
                         // Shift it to the right position
                         Moves.U2(cCube);
 
-                        Step step = new Step();
-                        step.move = "U2";
+                        Step step = new Step(Move.U2);
                         // TODO
                         // Add text to step
-                        s.steps.Add(step);
-                        s.turnsCount += 2;
+                        s.AddStep(step);
 
                         // Use the algorithm
                         Solution next = YSideAlg(cCube);
@@ -4089,14 +3673,12 @@ namespace RCSConsole
                 else if (yellow[0]) // Arrow pointing left up
                 {
                     // Shift it to the right position
-                    Moves.oU(cCube);
+                    Moves.Up(cCube);
 
-                    Step step = new Step();
-                    step.move = "U'";
+                    Step step = new Step(Move.Up);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YSideAlg(cCube);
@@ -4108,12 +3690,10 @@ namespace RCSConsole
                     // Shift it to the right position
                     Moves.U(cCube);
 
-                    Step step = new Step();
-                    step.move = "U";
+                    Step step = new Step(Move.U);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YSideAlg(cCube);
@@ -4125,12 +3705,10 @@ namespace RCSConsole
                     // Shift it to the right position
                     Moves.U2(cCube);
 
-                    Step step = new Step();
-                    step.move = "U2";
+                    Step step = new Step(Move.U2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YSideAlg(cCube);
@@ -4146,66 +3724,52 @@ namespace RCSConsole
 
             Moves.R(cube);
 
-            Step step = new Step();
-            step.move = "R";
+            Step step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U(cube);
 
-            step = new Step();
-            step.move = "U";
+            step = new Step(Move.U);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.U2(cube);
 
-            step = new Step();
-            step.move = "U2";
+            step = new Step(Move.U2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -4241,12 +3805,10 @@ namespace RCSConsole
 
                     Moves.RotationY2(cCube);
 
-                    Step step = new Step();
-                    step.move = "y2";
+                    Step step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YCornersAlg(cCube);
@@ -4255,14 +3817,12 @@ namespace RCSConsole
                 }
                 else if (cCube.sides[leftI].pieces[0].Color == cCube.sides[leftI].pieces[2].Color)
                 {
-                    Moves.oRotationY(cCube);
+                    Moves.RotationYp(cCube);
 
-                    Step step = new Step();
-                    step.move = "y'";
+                    Step step = new Step(Move.RotationYp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Solution bottom = YCornersFindBottom(cCube);
                     s.steps.AddRange(bottom.steps);
@@ -4270,28 +3830,24 @@ namespace RCSConsole
 
                     Moves.RotationY2(cCube);
 
-                    step = new Step();
-                    step.move = "y2";
+                    step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YCornersAlg(cCube);
                     s.steps.AddRange(next.steps);
                     s.turnsCount += next.turnsCount;
-                } 
+                }
                 else if (cCube.sides[rightI].pieces[0].Color == cCube.sides[rightI].pieces[2].Color)
                 {
                     Moves.RotationY(cCube);
 
-                    Step step = new Step();
-                    step.move = "y";
+                    Step step = new Step(Move.RotationY);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
 
                     Solution bottom = YCornersFindBottom(cCube);
                     s.steps.AddRange(bottom.steps);
@@ -4299,12 +3855,10 @@ namespace RCSConsole
 
                     Moves.RotationY2(cCube);
 
-                    step = new Step();
-                    step.move = "y2";
+                    step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YCornersAlg(cCube);
@@ -4315,12 +3869,10 @@ namespace RCSConsole
                 {
                     Moves.RotationY2(cCube);
 
-                    Step step = new Step();
-                    step.move = "y2";
+                    Step step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     Solution bottom = YCornersFindBottom(cCube);
                     s.steps.AddRange(bottom.steps);
@@ -4328,12 +3880,10 @@ namespace RCSConsole
 
                     Moves.RotationY2(cCube);
 
-                    step = new Step();
-                    step.move = "y2";
+                    step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
 
                     // Use the algorithm
                     Solution next = YCornersAlg(cCube);
@@ -4380,25 +3930,21 @@ namespace RCSConsole
             {
                 Moves.Dw(cube);
 
-                Step step = new Step();
-                step.move = "Dw";
+                Step step = new Step(Move.Dw);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
             else if (cube.sides[front].pieces[0].Color == Modulo.sColorMod(cube.frontC + 1))
             {
-                Moves.oDw(cube);
+                Moves.Dwp(cube);
 
-                Step step = new Step();
-                step.move = "Dw'";
+                Step step = new Step(Move.Dwp);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
 
                 return s;
             }
@@ -4406,12 +3952,10 @@ namespace RCSConsole
             {
                 Moves.Dw2(cube);
 
-                Step step = new Step();
-                step.move = "Dw2";
+                Step step = new Step(Move.Dw2);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount += 2;
+                s.AddStep(step);
 
                 return s;
             }
@@ -4421,95 +3965,75 @@ namespace RCSConsole
         {
             Solution s = new Solution();
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            Step step = new Step();
-            step.move = "R'";
+            Step step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.F(cube);
 
-            step = new Step();
-            step.move = "F";
+            step = new Step(Move.F);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.B2(cube);
 
-            step = new Step();
-            step.move = "B2";
+            step = new Step(Move.B2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oF(cube);
+            Moves.Fp(cube);
 
-            step = new Step();
-            step.move = "F'";
+            step = new Step(Move.Fp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.B2(cube);
 
-            step = new Step();
-            step.move = "B2";
+            step = new Step(Move.B2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
             Moves.R2(cube);
 
-            step = new Step();
-            step.move = "R2";
+            step = new Step(Move.R2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
-            Moves.oU(cube);
+            Moves.Up(cube);
 
-            step = new Step();
-            step.move = "U'";
+            step = new Step(Move.Up);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             return s;
         }
@@ -4532,6 +4056,17 @@ namespace RCSConsole
                 // Check if edges are not solved
                 if ((cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[1].Color) && (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[1].Color))
                 {
+                    // Check if we have correct bottom
+                    if (cCube.sides[frontI].pieces[0].Color != cCube.frontC)
+                    {
+                        // Nope -> Find it
+                        // Find correct bottom
+                        // Maybe we will need to create separate bottom finder for this but just for now we will use the YCorners one
+                        Solution b = YCornersFindBottom(cCube);
+                        s.steps.AddRange(b.steps);
+                        s.turnsCount += b.turnsCount;
+                    }
+
                     // Edges are solved -> Return Solution
                     return s;
                 }
@@ -4547,28 +4082,24 @@ namespace RCSConsole
                     solvedEdge = true;
 
                     // Move it to the fornt
-                    Moves.oRotationY(cCube);
+                    Moves.RotationYp(cCube);
 
-                    Step step = new Step();
-                    step.move = "y'";
+                    Step step = new Step(Move.RotationYp);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
-                else if (cCube.sides[rightI].pieces[0].Color == cCube.sides[rightI].pieces[1].Color) // Edge on the righht is solved
+                else if (cCube.sides[rightI].pieces[0].Color == cCube.sides[rightI].pieces[1].Color) // Edge on the right is solved
                 {
                     solvedEdge = true;
 
                     // Move it to the fornt
                     Moves.RotationY(cCube);
 
-                    Step step = new Step();
-                    step.move = "y";
+                    Step step = new Step(Move.RotationY);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount++;
+                    s.AddStep(step);
                 }
                 else if (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[1].Color) // Edge at the back is solved
                 {
@@ -4577,31 +4108,28 @@ namespace RCSConsole
                     // Move it to the fornt
                     Moves.RotationY2(cCube);
 
-                    Step step = new Step();
-                    step.move = "y2";
+                    Step step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
 
-                // Find correct bottom
-                // Maybe we will need to create separate bottom finder for this but just for now we will use the YCorners one
-                Solution bottom = YCornersFindBottom(cCube);
-                s.steps.AddRange(bottom.steps);
-                s.turnsCount += bottom.turnsCount;
-
-                // If we have solved edge move it to the back
+                // If we have solved edge find the correct bottom and move it to the back
                 if (solvedEdge)
                 {
+                    // Find correct bottom
+                    // Maybe we will need to create separate bottom finder for this but just for now we will use the YCorners one
+                    Solution bottom = YCornersFindBottom(cCube);
+                    s.steps.AddRange(bottom.steps);
+                    s.turnsCount += bottom.turnsCount;
+
+                    // Move it to the back
                     Moves.RotationY2(cCube);
 
-                    Step step = new Step();
-                    step.move = "y2";
+                    Step step = new Step(Move.RotationY2);
                     // TODO
                     // Add text to step
-                    s.steps.Add(step);
-                    s.turnsCount += 2;
+                    s.AddStep(step);
                 }
 
                 // Check if we need clockwise or counter-clockwise rotation and execute it
@@ -4625,112 +4153,1902 @@ namespace RCSConsole
 
             Moves.F2(cube);
 
-            Step step = new Step();
-            step.move = "F2";
+            Step step = new Step(Move.F2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
             if (clockwise)
             {
                 Moves.U(cube);
 
-                step = new Step();
-                step.move = "U";
+                step = new Step(Move.U);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else
             {
-                Moves.oU(cube);
+                Moves.Up(cube);
 
-                step = new Step();
-                step.move = "U'";
+                step = new Step(Move.Up);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
 
             Moves.L(cube);
 
-            step = new Step();
-            step.move = "L";
+            step = new Step(Move.L);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
-            Moves.oR(cube);
+            Moves.Rp(cube);
 
-            step = new Step();
-            step.move = "R'";
+            step = new Step(Move.Rp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.F2(cube);
 
-            step = new Step();
-            step.move = "F2";
+            step = new Step(Move.F2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
 
-            Moves.oL(cube);
+            Moves.Lp(cube);
 
-            step = new Step();
-            step.move = "L'";
+            step = new Step(Move.Lp);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             Moves.R(cube);
 
-            step = new Step();
-            step.move = "R";
+            step = new Step(Move.R);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount++;
+            s.AddStep(step);
 
             if (clockwise)
             {
                 Moves.U(cube);
 
-                step = new Step();
-                step.move = "U";
+                step = new Step(Move.U);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
             else
             {
-                Moves.oU(cube);
+                Moves.Up(cube);
 
-                step = new Step();
-                step.move = "U'";
+                step = new Step(Move.Up);
                 // TODO
                 // Add text to step
-                s.steps.Add(step);
-                s.turnsCount++;
+                s.AddStep(step);
             }
 
             Moves.F2(cube);
 
-            step = new Step();
-            step.move = "F2";
+            step = new Step(Move.F2);
             // TODO
             // Add text to step
-            s.steps.Add(step);
-            s.turnsCount += 2;
+            s.AddStep(step);
+
+            return s;
+        }
+
+        public static Solution TLOLL(Cube cube)
+        {
+            Solution s = new Solution();
+
+            // Create a clone so we can find the solution
+            Cube cCube = cube.Clone();
+
+            while (true) // While the yellow side is not solved
+            {
+                // Scan the yellow side of the cube
+                bool[] yellow = DetectYOnYSide(cCube);
+
+                // Check if the side is not all yellow
+                int numberOfSolved = 0;
+                foreach (bool b in yellow)
+                {
+                    if (b) numberOfSolved++;
+                }
+
+                if (numberOfSolved == 9)
+                {
+                    // Side solved -> Return Solution
+                    return s;
+                }
+
+                if (!yellow[1] || !yellow[3] || !yellow[5] || !yellow[7]) // We don't have solved edges (cross) yet
+                {
+                    if (yellow[3] && yellow[5]) // Horizontal line
+                    {
+                        Solution line = TLOLLLine(cCube);
+                        s.steps.AddRange(line.steps);
+                        s.turnsCount += line.turnsCount;
+                    }
+                    else if (yellow[1] && yellow[7]) // Vertical line
+                    {
+                        Moves.U(cCube);
+
+                        Step step = new Step(Move.U);
+                        // TODO
+                        // Add text to step
+                        s.AddStep(step);
+
+                        Solution line = TLOLLLine(cCube);
+                        s.steps.AddRange(line.steps);
+                        s.turnsCount += line.turnsCount;
+                    }
+                    else if (yellow[1] && yellow[3]) // Small L up left
+                    {
+                        Moves.U2(cCube);
+
+                        Step step = new Step(Move.U2);
+                        // TODO
+                        // Add text to step
+                        s.AddStep(step);
+
+                        Solution smallL = TLOLLSmallL(cCube);
+                        s.steps.AddRange(smallL.steps);
+                        s.turnsCount += smallL.turnsCount;
+
+                    }
+                    else if (yellow[1] && yellow[5]) // Small L up right
+                    {
+                        Moves.U(cCube);
+
+                        Step step = new Step(Move.U);
+                        // TODO
+                        // Add text to step
+                        s.AddStep(step);
+
+                        Solution smallL = TLOLLSmallL(cCube);
+                        s.steps.AddRange(smallL.steps);
+                        s.turnsCount += smallL.turnsCount;
+                    }
+                    else if (yellow[3] && yellow[7]) // Small L down left
+                    {
+                        Moves.Up(cCube);
+
+                        Step step = new Step(Move.Up);
+                        // TODO
+                        // Add text to step
+                        s.AddStep(step);
+
+                        Solution smallL = TLOLLSmallL(cCube);
+                        s.steps.AddRange(smallL.steps);
+                        s.turnsCount += smallL.turnsCount;
+                    }
+                    else if (yellow[5] && yellow[7]) // Small L down right
+                    {
+                        Solution smallL = TLOLLSmallL(cCube);
+                        s.steps.AddRange(smallL.steps);
+                        s.turnsCount += smallL.turnsCount;
+                    }
+                    else // Dot
+                    {
+                        Solution dot = TLOLLDot(cCube);
+                        s.steps.AddRange(dot.steps);
+                        s.turnsCount += dot.turnsCount;
+                    }
+                }
+                else if (numberOfSolved == 5) // Cross (H or Pi)
+                {
+                    int frontI = (int)cCube.frontC;
+                    int leftI = Modulo.sIntMod(cCube.frontC - 1);
+                    int backI = Modulo.sIntMod(cCube.frontC + 2);
+                    int rightI = Modulo.sIntMod(cCube.frontC + 1);
+
+                    if (cCube.sides[frontI].pieces[0].Color == Color.Yellow)
+                    {
+                        if (cCube.sides[backI].pieces[0].Color == Color.Yellow) // Rotated H
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution h = TLOLLH(cCube);
+                            s.steps.AddRange(h.steps);
+                            s.turnsCount += h.turnsCount;
+                        }
+                        else if (cCube.sides[backI].pieces[2].Color == Color.Yellow) // Left Pi
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution pi = TLOLLPi(cCube);
+                            s.steps.AddRange(pi.steps);
+                            s.turnsCount += pi.turnsCount;
+                        }
+                        else // Up Pi
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution pi = TLOLLPi(cCube);
+                            s.steps.AddRange(pi.steps);
+                            s.turnsCount += pi.turnsCount;
+                        }
+                    }
+                    else if (cCube.sides[leftI].pieces[2].Color == Color.Yellow)
+                    {
+                        if (cCube.sides[rightI].pieces[2].Color == Color.Yellow) // H
+                        {
+                            Solution h = TLOLLH(cCube);
+                            s.steps.AddRange(h.steps);
+                            s.turnsCount += h.turnsCount;
+                        }
+                        else if (cCube.sides[rightI].pieces[0].Color == Color.Yellow) // Bottom Pi
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution pi = TLOLLPi(cCube);
+                            s.steps.AddRange(pi.steps);
+                            s.turnsCount += pi.turnsCount;
+                        }
+                        else // (Right) Pi
+                        {
+                            Solution pi = TLOLLPi(cCube);
+                            s.steps.AddRange(pi.steps);
+                            s.turnsCount += pi.turnsCount;
+                        }
+                    }
+                }
+                else if (numberOfSolved == 6) // Sune or Antisune
+                {
+                    int frontI = (int)cCube.frontC;
+                    int leftI = Modulo.sIntMod(cCube.frontC - 1);
+                    int backI = Modulo.sIntMod(cCube.frontC + 2);
+                    int rightI = Modulo.sIntMod(cCube.frontC + 1);
+
+                    if (yellow[0]) // Pointing up left
+                    {
+                        if (cCube.sides[leftI].pieces[2].Color == Color.Yellow) // Rotated Sune
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution sune = TLOLLSune(cCube);
+                            s.steps.AddRange(sune.steps);
+                            s.turnsCount += sune.turnsCount;
+                        }
+                        else // Rotated Antisune
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution antisune = TLOLLAntisune(cCube);
+                            s.steps.AddRange(antisune.steps);
+                            s.turnsCount += antisune.turnsCount;
+
+                        }
+                    }
+                    else if (yellow[2]) // Pointing up right
+                    {
+                        if (cCube.sides[backI].pieces[2].Color == Color.Yellow) // Rotated Sune
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution sune = TLOLLSune(cCube);
+                            s.steps.AddRange(sune.steps);
+                            s.turnsCount += sune.turnsCount;
+                        }
+                        else // Antisune
+                        {
+                            Solution antisune = TLOLLAntisune(cCube);
+                            s.steps.AddRange(antisune.steps);
+                            s.turnsCount += antisune.turnsCount;
+                        }
+
+                    }
+                    else if (yellow[6]) // Pointing down left
+                    {
+                        if (cCube.sides[frontI].pieces[2].Color == Color.Yellow) // Sune
+                        {
+                            Solution sune = TLOLLSune(cCube);
+                            s.steps.AddRange(sune.steps);
+                            s.turnsCount += sune.turnsCount;
+                        }
+                        else // Rotated Antisune
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution antisune = TLOLLAntisune(cCube);
+                            s.steps.AddRange(antisune.steps);
+                            s.turnsCount += antisune.turnsCount;
+                        }
+                    }
+                    else // Pointing down right
+                    {
+                        if (cCube.sides[rightI].pieces[2].Color == Color.Yellow) // Rotated Sune
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution sune = TLOLLSune(cCube);
+                            s.steps.AddRange(sune.steps);
+                            s.turnsCount += sune.turnsCount;
+                        }
+                        else // Rotated Antisune
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution antisune = TLOLLAntisune(cCube);
+                            s.steps.AddRange(antisune.steps);
+                            s.turnsCount += antisune.turnsCount;
+                        }
+                    }
+                }
+                else // Else (L, T, U)
+                {
+                    int frontI = (int)cCube.frontC;
+                    int leftI = Modulo.sIntMod(cCube.frontC - 1);
+                    int backI = Modulo.sIntMod(cCube.frontC + 2);
+                    int rightI = Modulo.sIntMod(cCube.frontC + 1);
+
+                    if (yellow[0] && yellow[8]) // L
+                    {
+                        if (cCube.sides[frontI].pieces[0].Color != Color.Yellow) // Yellow is not at the front
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+                        }
+
+                        Solution l = TLOLLL(cCube);
+                        s.steps.AddRange(l.steps);
+                        s.turnsCount += l.turnsCount;
+                    }
+                    else if (yellow[2] && yellow[6]) // Rotated L
+                    {
+                        if (cCube.sides[rightI].pieces[0].Color == Color.Yellow) // Yellow is on the left
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+                        }
+                        else // Yellow is on the right
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+                        }
+
+                        Solution l = TLOLLL(cCube);
+                        s.steps.AddRange(l.steps);
+                        s.turnsCount += l.turnsCount;
+                    }
+                    else if (yellow[0] && yellow[2]) // Complete up row
+                    {
+                        if (cCube.sides[frontI].pieces[0].Color == Color.Yellow) // U
+                        {
+                            Solution u = TLOLLU(cCube);
+                            s.steps.AddRange(u.steps);
+                            s.turnsCount += u.turnsCount;
+                        }
+                        else // Rotated T
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution t = TLOLLT(cCube);
+                            s.steps.AddRange(t.steps);
+                            s.turnsCount += t.turnsCount;
+                        }
+                    }
+                    else if (yellow[0] && yellow[6]) // Complete left row
+                    {
+                        if (cCube.sides[rightI].pieces[0].Color == Color.Yellow) // Rotated U
+                        {
+                            Moves.U(cCube);
+
+                            Step step = new Step(Move.U);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution u = TLOLLU(cCube);
+                            s.steps.AddRange(u.steps);
+                            s.turnsCount += u.turnsCount;
+                        }
+                        else // Rotated T
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution t = TLOLLT(cCube);
+                            s.steps.AddRange(t.steps);
+                            s.turnsCount += t.turnsCount;
+                        }
+                    }
+                    else if (yellow[6] && yellow[8]) // Complete bottom row
+                    {
+                        if (cCube.sides[backI].pieces[0].Color == Color.Yellow) // Rotated U
+                        {
+                            Moves.U2(cCube);
+
+                            Step step = new Step(Move.U2);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution u = TLOLLU(cCube);
+                            s.steps.AddRange(u.steps);
+                            s.turnsCount += u.turnsCount;
+                        }
+                        else // Rotated T
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution t = TLOLLT(cCube);
+                            s.steps.AddRange(t.steps);
+                            s.turnsCount += t.turnsCount;
+                        }
+
+                    }
+                    else // Complete right row
+                    {
+                        if (cCube.sides[leftI].pieces[0].Color == Color.Yellow) // Rotated U
+                        {
+                            Moves.Up(cCube);
+
+                            Step step = new Step(Move.Up);
+                            // TODO
+                            // Add text to step
+                            s.AddStep(step);
+
+                            Solution u = TLOLLU(cCube);
+                            s.steps.AddRange(u.steps);
+                            s.turnsCount += u.turnsCount;
+                        }
+                        else // T
+                        {
+                            Solution t = TLOLLT(cCube);
+                            s.steps.AddRange(t.steps);
+                            s.turnsCount += t.turnsCount;
+                        }
+                    }
+                }
+            }
+        }
+
+        private static Solution TLOLLDot(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.F(cube);
+
+            Step step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fw(cube);
+
+            step = new Step(Move.Fw);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fwp(cube);
+
+            step = new Step(Move.Fwp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLLine(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.F(cube);
+
+            Step step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLSmallL(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.Fw(cube);
+
+            Step step = new Step(Move.Fw);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fwp(cube);
+
+            step = new Step(Move.Fwp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLAntisune(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLH(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLL(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.F(cube);
+
+            Step step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rw(cube);
+
+            step = new Step(Move.Rw);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rwp(cube);
+
+            step = new Step(Move.Rwp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLPi(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R2(cube);
+
+            step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R2(cube);
+
+            step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R2(cube);
+
+            step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLSune(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLT(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.Rw(cube);
+
+            Step step = new Step(Move.Rw);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rwp(cube);
+
+            step = new Step(Move.Rwp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.F(cube);
+
+            step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLOLLU(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R2(cube);
+
+            Step step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.D(cube);
+
+            step = new Step(Move.D);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Dp(cube);
+
+            step = new Step(Move.Dp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        public static Solution TLPLL(Cube cube)
+        {
+            Solution s = new Solution();
+
+            // Create a clone so we can find the solution
+            Cube cCube = cube.Clone();
+
+            // Create variables to help
+            int frontI = (int)cCube.frontC;
+            int backI = Modulo.sIntMod(cCube.frontC + 2);
+            int leftI = Modulo.sIntMod(cCube.frontC - 1);
+            int rightI = Modulo.sIntMod(cCube.frontC + 1);
+
+            // Check if cube is not solved
+            if ((cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[1].Color)
+                && (cCube.sides[frontI].pieces[1].Color == cCube.sides[frontI].pieces[2].Color)
+                && (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[1].Color)
+                && (cCube.sides[backI].pieces[1].Color == cCube.sides[backI].pieces[2].Color))
+            {
+                // Check if we have correct bottom
+                if (cCube.sides[frontI].pieces[0].Color != cCube.frontC)
+                {
+                    // Nope -> Find it
+                    // Find correct bottom
+                    // Maybe we will need to create separate bottom finder for this but just for now we will use the YCorners one
+                    Solution b = YCornersFindBottom(cCube);
+                    s.steps.AddRange(b.steps);
+                    s.turnsCount += b.turnsCount;
+                }
+
+                // Cube is solved -> Return Solution
+                return s;
+            }
+
+            // Find solution
+            if (!((cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[2].Color) && (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[2].Color))) // Corners are not solved -> fix them
+            {
+                bool headlights = false;
+                if (cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[2].Color) // Headlights facing front
+                {
+                    Moves.U(cCube);
+
+                    Step step = new Step(Move.U);
+                    // TODO
+                    // Add text to step
+                    s.AddStep(step);
+
+                    headlights = true;
+                }
+                else if (cCube.sides[leftI].pieces[0].Color == cCube.sides[leftI].pieces[2].Color) // Headlights facing left
+                {
+                    headlights = true;
+                }
+                else if (cCube.sides[rightI].pieces[0].Color == cCube.sides[rightI].pieces[2].Color) // Headlights facing right
+                {
+                    Moves.U2(cCube);
+
+                    Step step = new Step(Move.U2);
+                    // TODO
+                    // Add text to step
+                    s.AddStep(step);
+
+                    headlights = true;
+                }
+                else if (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[2].Color) // Headlights facing back
+                {
+                    Moves.Up(cCube);
+
+                    Step step = new Step(Move.Up);
+                    // TODO
+                    // Add text to step
+                    s.AddStep(step);
+
+                    headlights = true;
+                }
+
+                if (headlights)
+                {
+                    Solution hlights = TLPLLHeadlights(cCube);
+                    s.steps.AddRange(hlights.steps);
+                    s.turnsCount += hlights.turnsCount;
+                }
+                else // No headlights -> Diagonal
+                {
+                    Solution diagonal = TLPLLDiagonal(cCube);
+                    s.steps.AddRange(diagonal.steps);
+                    s.turnsCount += diagonal.turnsCount;
+                }
+            }
+
+            // Find correct bottom
+            // Maybe we will need to create separate bottom finder for this but just for now we will use the YCorners one
+            Solution bottom = YCornersFindBottom(cCube);
+            s.steps.AddRange(bottom.steps);
+            s.turnsCount += bottom.turnsCount;
+
+            // Update variables to help
+            frontI = (int)cCube.frontC;
+            backI = Modulo.sIntMod(cCube.frontC + 2);
+            leftI = Modulo.sIntMod(cCube.frontC - 1);
+            rightI = Modulo.sIntMod(cCube.frontC + 1);
+
+            // Check if cube is not solved
+            if ((cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[1].Color)
+                && (cCube.sides[frontI].pieces[1].Color == cCube.sides[frontI].pieces[2].Color)
+                && (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[1].Color)
+                && (cCube.sides[backI].pieces[1].Color == cCube.sides[backI].pieces[2].Color))
+            {
+                // Cube is solved -> Return Solution
+                return s;
+            }
+
+            bool completeEdge = false;
+            if (cCube.sides[frontI].pieces[0].Color == cCube.sides[frontI].pieces[1].Color) // Complete edge on the front
+            {
+                Moves.RotationY2(cCube);
+
+                Step step = new Step(Move.RotationY2);
+                // TODO
+                // Add text to step
+                s.AddStep(step);
+
+                completeEdge = true;
+            }
+            else if (cCube.sides[leftI].pieces[0].Color == cCube.sides[leftI].pieces[1].Color) // Complete edge on the left
+            {
+                Moves.RotationY(cCube);
+
+                Step step = new Step(Move.RotationY);
+                // TODO
+                // Add text to step
+                s.AddStep(step);
+
+                completeEdge = true;
+            }
+            else if (cCube.sides[rightI].pieces[0].Color == cCube.sides[rightI].pieces[1].Color) // Complete edge on the right
+            {
+                Moves.RotationYp(cCube);
+
+                Step step = new Step(Move.RotationYp);
+                // TODO
+                // Add text to step
+                s.AddStep(step);
+
+                completeEdge = true;
+            }
+            else if (cCube.sides[backI].pieces[0].Color == cCube.sides[backI].pieces[1].Color) // Complete edge on the back
+            {
+                completeEdge = true;
+            }
+            else if (cCube.sides[frontI].pieces[1].Color == Modulo.sColorMod(cCube.frontC + 2)) // No comlepte edge but H case
+            {
+                Solution h = TLPLLH(cCube);
+                s.steps.AddRange(h.steps);
+                s.turnsCount += h.turnsCount;
+            }
+            else // No complete edge but Z case
+            {
+                if (cCube.sides[(int)cCube.frontC].pieces[1].Color == Modulo.sColorMod(cCube.frontC + 1)) // Z case is orientated wrong
+                {
+                    Moves.RotationY(cCube);
+
+                    Step step = new Step(Move.RotationY);
+                    // TODO
+                    // Add text to step
+                    s.AddStep(step);
+                }
+
+                Solution z = TLPLLZ(cCube);
+                s.steps.AddRange(z.steps);
+                s.turnsCount += z.turnsCount;
+            }
+
+            if (completeEdge)
+            {
+                // Check if we need clockwise or counter-clockwise rotation and execute it
+                Solution u;
+                if (cCube.sides[(int)cCube.frontC].pieces[1].Color == Modulo.sColorMod(cCube.frontC - 1))
+                {
+                    u = TLPLLUb(cCube);
+                }
+                else
+                {
+                    u = TLPLLUa(cCube);
+                }
+                s.steps.AddRange(u.steps);
+                s.turnsCount += u.turnsCount;
+            }
+
+            return s;
+        }
+
+        private static Solution TLPLLDiagonal(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.F(cube);
+
+            Step step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.F(cube);
+
+            step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLPLLHeadlights(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.F(cube);
+
+            step = new Step(Move.F);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R2(cube);
+
+            step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Fp(cube);
+
+            step = new Step(Move.Fp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLPLLH(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.M2(cube);
+
+            Step step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLPLLUa(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R(cube);
+
+            Step step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R2(cube);
+
+            step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLPLLUb(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.R2(cube);
+
+            Step step = new Step(Move.R2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.R(cube);
+
+            step = new Step(Move.R);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Up(cube);
+
+            step = new Step(Move.Up);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Rp(cube);
+
+            step = new Step(Move.Rp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            return s;
+        }
+
+        private static Solution TLPLLZ(Cube cube)
+        {
+            Solution s = new Solution();
+
+            Moves.Mp(cube);
+
+            Step step = new Step(Move.Mp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U(cube);
+
+            step = new Step(Move.U);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.Mp(cube);
+
+            step = new Step(Move.Mp);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.U2(cube);
+
+            step = new Step(Move.U2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
+
+            Moves.M2(cube);
+
+            step = new Step(Move.M2);
+            // TODO
+            // Add text to step
+            s.AddStep(step);
 
             return s;
         }

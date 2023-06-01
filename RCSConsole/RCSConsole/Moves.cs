@@ -53,32 +53,32 @@ namespace RCSConsole
             cube.sides[3].pieces[2] = p3;
         }
 
-        public static void oU(Cube cube)
+        public static void Up(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoU(cube);
+                yUp(cube);
             }
             else if (cube.topC == Color.White)
             {
-                yoD(cube);
+                yDp(cube);
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC - 1));
+                yRp(cube, Modulo.sIntMod(cube.topC - 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoR(cube, (int)cube.frontC);
+                yRp(cube, (int)cube.frontC);
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
+                yRp(cube, Modulo.sIntMod(cube.frontC + 2));
             }
         }
 
-        private static void yoU(Cube cube)
+        private static void yUp(Cube cube)
         {
             RotateSideCounterclockwise(cube.sides[4]);
 
@@ -143,32 +143,32 @@ namespace RCSConsole
             cube.sides[1].pieces[8] = p3;
         }
 
-        public static void oD(Cube cube)
+        public static void Dp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoD(cube);
+                yDp(cube);
             }
             else if (cube.topC == Color.White)
             {
-                yoU(cube);
+                yUp(cube);
             }
             else if (cube.frontC == Color.Yellow || cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 1));
+                yRp(cube, Modulo.sIntMod(cube.topC + 1));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
+                yRp(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else
             {
-                yoR(cube, (int)cube.frontC);
+                yRp(cube, (int)cube.frontC);
             }
         }
 
-        private static void yoD(Cube cube)
+        private static void yDp(Cube cube)
         {
             RotateSideCounterclockwise(cube.sides[5]);
 
@@ -248,36 +248,36 @@ namespace RCSConsole
             cube.sides[4].pieces[YCoordinates[8]] = p3;
         }
 
-        public static void oR(Cube cube)
+        public static void Rp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoR(cube, (int)cube.frontC);
+                yRp(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 2));
+                yRp(cube, Modulo.sIntMod(cube.topC + 2));
             }
             else if (cube.topC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
+                yRp(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.White)
             {
-                yoR(cube, (int)cube.topC);
+                yRp(cube, (int)cube.topC);
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoD(cube);
+                yDp(cube);
             }
             else
             {
-                yoU(cube);
+                yUp(cube);
             }
         }
 
-        private static void yoR(Cube cube, int frontSide)
+        private static void yRp(Cube cube, int frontSide)
         {
             int backSide = (frontSide + 2) % 4;
             int rightSide = (frontSide + 1) % 4;
@@ -369,32 +369,32 @@ namespace RCSConsole
             }
         }
 
-        public static void oL(Cube cube)
+        public static void Lp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 2));
+                yRp(cube, Modulo.sIntMod(cube.frontC + 2));
             }
             else if (cube.frontC == Color.Yellow)
             {
-                yoR(cube, (int)cube.topC);
+                yRp(cube, (int)cube.topC);
             }
             else if (cube.topC == Color.White)
             {
-                yoR(cube, (int)cube.frontC);
+                yRp(cube, (int)cube.frontC);
             }
             else if (cube.frontC == Color.White)
             {
-                yoR(cube, Modulo.sIntMod(cube.topC + 2));
+                yRp(cube, Modulo.sIntMod(cube.topC + 2));
             }
             // if Yellow is on the left side
             else if (cube.topC == Modulo.sColorMod(cube.frontC + 1))
             {
-                yoU(cube);
+                yUp(cube);
             }
             else
             {
-                yoD(cube);
+                yDp(cube);
             }
         }
 
@@ -414,19 +414,19 @@ namespace RCSConsole
             }
         }
 
-        public static void oF(Cube cube)
+        public static void Fp(Cube cube)
         {
             if (cube.frontC == Color.Yellow)
             {
-                yoU(cube);
+                yUp(cube);
             }
             else if (cube.frontC == Color.White)
             {
-                yoD(cube);
+                yDp(cube);
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC - 1));
+                yRp(cube, Modulo.sIntMod(cube.frontC - 1));
             }
         }
 
@@ -446,19 +446,19 @@ namespace RCSConsole
             }
         }
 
-        public static void oB(Cube cube)
+        public static void Bp(Cube cube)
         {
             if (cube.frontC == Color.Yellow)
             {
-                yoD(cube);
+                yDp(cube);
             }
             else if (cube.frontC == Color.White)
             {
-                yoU(cube);
+                yUp(cube);
             }
             else
             {
-                yoR(cube, Modulo.sIntMod(cube.frontC + 1));
+                yRp(cube, Modulo.sIntMod(cube.frontC + 1));
             }
         }
 
@@ -528,7 +528,7 @@ namespace RCSConsole
             }
         }
 
-        public static void oRotationX(Cube cube)
+        public static void RotationXp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
@@ -587,7 +587,7 @@ namespace RCSConsole
             }
         }
 
-        public static void oRotationY(Cube cube)
+        public static void RotationYp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
@@ -645,7 +645,7 @@ namespace RCSConsole
             }
         }
 
-        public static void oRotationZ(Cube cube)
+        public static void RotationZp(Cube cube)
         {
             if (cube.topC == Color.Yellow)
             {
@@ -698,22 +698,22 @@ namespace RCSConsole
             D(cube);
         }
 
-        public static void oUw(Cube cube)
+        public static void Uwp(Cube cube)
         {
-            oRotationY(cube);
-            oD(cube);
+            RotationYp(cube);
+            Dp(cube);
         }
 
         public static void Dw(Cube cube)
         {
-            oRotationY(cube);
+            RotationYp(cube);
             U(cube);
         }
 
-        public static void oDw(Cube cube)
+        public static void Dwp(Cube cube)
         {
             RotationY(cube);
-            oU(cube);
+            Up(cube);
         }
 
         public static void Rw(Cube cube)
@@ -722,22 +722,22 @@ namespace RCSConsole
             L(cube);
         }
 
-        public static void oRw(Cube cube)
+        public static void Rwp(Cube cube)
         {
-            oRotationX(cube);
-            oL(cube);
+            RotationXp(cube);
+            Lp(cube);
         }
 
         public static void Lw(Cube cube)
         {
-            oRotationX(cube);
+            RotationXp(cube);
             R(cube);
         }
 
-        public static void oLw(Cube cube)
+        public static void Lwp(Cube cube)
         {
             RotationX(cube);
-            oR(cube);
+            Rp(cube);
         }
 
         public static void Fw(Cube cube)
@@ -746,22 +746,22 @@ namespace RCSConsole
             B(cube);
         }
 
-        public static void oFw(Cube cube)
+        public static void Fwp(Cube cube)
         {
-            oRotationZ(cube);
-            oB(cube);
+            RotationZp(cube);
+            Bp(cube);
         }
 
         public static void Bw(Cube cube)
         {
-            oRotationZ(cube);
+            RotationZp(cube);
             F(cube);
         }
 
-        public static void oBw(Cube cube)
+        public static void Bwp(Cube cube)
         {
             RotationZ(cube);
-            oF(cube);
+            Fp(cube);
         }
 
         public static void Uw2(Cube cube)
@@ -802,44 +802,44 @@ namespace RCSConsole
 
         public static void M(Cube cube)
         {
-            oRotationX(cube);
-            oL(cube);
+            RotationXp(cube);
+            Lp(cube);
             R(cube);
         }
 
-        public static void oM(Cube cube)
+        public static void Mp(Cube cube)
         {
             RotationX(cube);
             L(cube);
-            oR(cube);
+            Rp(cube);
         }
 
         public static void E(Cube cube)
         {
-            oRotationY(cube);
+            RotationYp(cube);
             U(cube);
-            oD(cube);
+            Dp(cube);
         }
 
-        public static void oE(Cube cube)
+        public static void Ep(Cube cube)
         {
             RotationY(cube);
-            oU(cube);
+            Up(cube);
             D(cube);
         }
 
         public static void S(Cube cube)
         {
             RotationZ(cube);
-            oF(cube);
+            Fp(cube);
             B(cube);
         }
 
-        public static void oS(Cube cube)
+        public static void Sp(Cube cube)
         {
-            oRotationZ(cube);
+            RotationZp(cube);
             F(cube);
-            oB(cube);
+            Bp(cube);
         }
 
         public static void M2(Cube cube)

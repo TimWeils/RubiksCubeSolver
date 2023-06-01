@@ -50,8 +50,12 @@
     <Compile Include="Cube.cs" />
     <Compile Include="CubePiece.cs" />
     <Compile Include="EdgePosition.cs" />
+    <Compile Include="F2L.cs" />
     <Compile Include="Modulo.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="Moves.cs" />
+    <Compile Include="OLL.cs" />
+    <Compile Include="PLL.cs" />
     <Compile Include="Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
