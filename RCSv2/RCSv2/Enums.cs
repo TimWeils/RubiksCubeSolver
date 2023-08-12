@@ -83,4 +83,24 @@ namespace RCSv2
         Zp,
         Z2
     }
+
+    static class EnumUtils
+    {
+        static public Move GetOppositeMove(Move move)
+        {
+            string moveString = move.ToString();
+            if (moveString.Contains("p"))
+            {
+                return Enum.Parse<Move>(moveString.Substring(0, moveString.Length - 1));
+            }
+            else if (moveString.Contains("2"))
+            {
+                return move;
+            }
+            else
+            {
+                return Enum.Parse<Move>(moveString + "p");
+            }
+        }
+    }
 }

@@ -9,14 +9,26 @@ namespace RCSv2
     class PCube
     {
         private int[] cornersPermutation;
-        private int[] edgesPermutration;
+        private int[] edgesPermutation;
         private int[] centersPermutation;
 
+        // Constructor
         public PCube()
         {
             this.cornersPermutation = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
-            this.edgesPermutration = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
+            this.edgesPermutation = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
             this.centersPermutation = new int[] { 0, 1, 2, 3, 4, 5 };
+        }
+
+        // Copy constructor
+        public PCube(PCube other)
+        {
+            this.cornersPermutation = new int[other.cornersPermutation.Length];
+            Array.Copy(other.cornersPermutation, this.cornersPermutation, other.cornersPermutation.Length);
+            this.edgesPermutation = new int[other.edgesPermutation.Length];
+            Array.Copy(other.edgesPermutation, this.edgesPermutation, other.edgesPermutation.Length);
+            this.centersPermutation = new int[other.centersPermutation.Length];
+            Array.Copy(other.centersPermutation, this.centersPermutation, other.centersPermutation.Length);
         }
 
         private static void ApplyMoves(Dictionary<int, int> moves, int[] permutation)
@@ -32,7 +44,7 @@ namespace RCSv2
         public void ApplyMoves(Moves moves)
         {
             ApplyMoves(moves.CornerMoves, this.cornersPermutation);
-            ApplyMoves(moves.EdgeMoves, this.edgesPermutration);
+            ApplyMoves(moves.EdgeMoves, this.edgesPermutation);
             ApplyMoves(moves.CenterMoves, this.centersPermutation);
         }
 
@@ -105,83 +117,142 @@ namespace RCSv2
                     return new Color[]
                     { 
                         CornerToColor(cornersPermutation[0]),
-                        EdgeToColor(edgesPermutration[0]),
+                        EdgeToColor(edgesPermutation[0]),
                         CornerToColor(cornersPermutation[1]),
-                        EdgeToColor(edgesPermutration[3]),
+                        EdgeToColor(edgesPermutation[3]),
                         CenterToColor(centersPermutation[0]),
-                        EdgeToColor(edgesPermutration[1]),
+                        EdgeToColor(edgesPermutation[1]),
                         CornerToColor(cornersPermutation[3]),
-                        EdgeToColor(edgesPermutration[2]),
+                        EdgeToColor(edgesPermutation[2]),
                         CornerToColor(cornersPermutation[2])
                     };
                 case Side.Right:
                     return new Color[]
                     {
                         CornerToColor(cornersPermutation[4]),
-                        EdgeToColor(edgesPermutration[4]),
+                        EdgeToColor(edgesPermutation[4]),
                         CornerToColor(cornersPermutation[5]),
-                        EdgeToColor(edgesPermutration[7]),
+                        EdgeToColor(edgesPermutation[7]),
                         CenterToColor(centersPermutation[1]),
-                        EdgeToColor(edgesPermutration[5]),
+                        EdgeToColor(edgesPermutation[5]),
                         CornerToColor(cornersPermutation[7]),
-                        EdgeToColor(edgesPermutration[6]),
+                        EdgeToColor(edgesPermutation[6]),
                         CornerToColor(cornersPermutation[6])
                     };
                 case Side.Back:
                     return new Color[]
                     {
                         CornerToColor(cornersPermutation[8]),
-                        EdgeToColor(edgesPermutration[8]),
+                        EdgeToColor(edgesPermutation[8]),
                         CornerToColor(cornersPermutation[9]),
-                        EdgeToColor(edgesPermutration[11]),
+                        EdgeToColor(edgesPermutation[11]),
                         CenterToColor(centersPermutation[2]),
-                        EdgeToColor(edgesPermutration[9]),
+                        EdgeToColor(edgesPermutation[9]),
                         CornerToColor(cornersPermutation[11]),
-                        EdgeToColor(edgesPermutration[10]),
+                        EdgeToColor(edgesPermutation[10]),
                         CornerToColor(cornersPermutation[10])
                     };
                 case Side.Left:
                     return new Color[]
                     {
                         CornerToColor(cornersPermutation[12]),
-                        EdgeToColor(edgesPermutration[12]),
+                        EdgeToColor(edgesPermutation[12]),
                         CornerToColor(cornersPermutation[13]),
-                        EdgeToColor(edgesPermutration[15]),
+                        EdgeToColor(edgesPermutation[15]),
                         CenterToColor(centersPermutation[3]),
-                        EdgeToColor(edgesPermutration[13]),
+                        EdgeToColor(edgesPermutation[13]),
                         CornerToColor(cornersPermutation[15]),
-                        EdgeToColor(edgesPermutration[14]),
+                        EdgeToColor(edgesPermutation[14]),
                         CornerToColor(cornersPermutation[14])
                     };
                 case Side.Up:
                     return new Color[]
                     {
                         CornerToColor(cornersPermutation[16]),
-                        EdgeToColor(edgesPermutration[16]),
+                        EdgeToColor(edgesPermutation[16]),
                         CornerToColor(cornersPermutation[17]),
-                        EdgeToColor(edgesPermutration[19]),
+                        EdgeToColor(edgesPermutation[19]),
                         CenterToColor(centersPermutation[4]),
-                        EdgeToColor(edgesPermutration[17]),
+                        EdgeToColor(edgesPermutation[17]),
                         CornerToColor(cornersPermutation[19]),
-                        EdgeToColor(edgesPermutration[18]),
+                        EdgeToColor(edgesPermutation[18]),
                         CornerToColor(cornersPermutation[18])
                     };
                 case Side.Down:
                     return new Color[]
                     {
                         CornerToColor(cornersPermutation[20]),
-                        EdgeToColor(edgesPermutration[20]),
+                        EdgeToColor(edgesPermutation[20]),
                         CornerToColor(cornersPermutation[21]),
-                        EdgeToColor(edgesPermutration[23]),
+                        EdgeToColor(edgesPermutation[23]),
                         CenterToColor(centersPermutation[5]),
-                        EdgeToColor(edgesPermutration[21]),
+                        EdgeToColor(edgesPermutation[21]),
                         CornerToColor(cornersPermutation[23]),
-                        EdgeToColor(edgesPermutration[22]),
+                        EdgeToColor(edgesPermutation[22]),
                         CornerToColor(cornersPermutation[22])
                     };
                 default:
                     throw new Exception("Invalid side!");
             }
+        }
+
+        private bool SidesCompare(PCube other, Dictionary<Side, bool[]> mask)
+        {
+            Dictionary<Color, Color> colorD = new Dictionary<Color, Color>();
+            foreach (Side s in Enum.GetValues(typeof(Side)))
+            {
+                Color[] thisSide = this.GetSideColors(s);
+                Color[] otherSide = other.GetSideColors(s);
+
+                for (int i = 0; i < thisSide.Length; i++)
+                {
+                    if (!mask[s][i]) continue;
+
+                    Color toCompare;
+                    if (colorD.ContainsKey(thisSide[i]))
+                    {
+                        toCompare = colorD[thisSide[i]];
+                    }
+                    else
+                    {
+                        // ? if d hasValue(otherSide) return false;
+                        colorD.Add(thisSide[i], otherSide[i]);
+                        continue;
+                    }
+                    if (toCompare != otherSide[i]) return false;
+                }
+            }
+            return true;
+        }
+
+        public bool Compare(PCube other, Dictionary<Side, bool[]> mask, Move[] interchangeableMoves, out Move? usedMove)
+        {
+            usedMove = null;
+
+            if (other == null) return false;
+
+            if (ReferenceEquals(this, other)) return true;
+
+            if (SidesCompare(other, mask)) return true;
+
+            foreach (Move move in interchangeableMoves)
+            {
+                PCube movedCube = new PCube(other);
+                movedCube.ApplyMoves(new Moves(move));
+                if (movedCube.SidesCompare(this, mask))
+                {
+                    usedMove = EnumUtils.GetOppositeMove(move);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool Compare(PCube other, Dictionary<Side, bool[]> mask)
+        {
+            Move? move;
+            return this.Compare(other, mask, null, out move);
         }
     }
 
@@ -190,6 +261,7 @@ namespace RCSv2
         private Dictionary<int, int> corners;
         private Dictionary<int, int> edges;
         private Dictionary<int, int> centers;
+        private List<Move> description;
 
         public Dictionary<int, int> CornerMoves
         {
@@ -206,15 +278,17 @@ namespace RCSv2
             get => centers;
         }
 
-        private Moves()
+        public Moves()
         {
             this.corners = new Dictionary<int, int>();
             this.edges = new Dictionary<int, int>();
             this.centers = new Dictionary<int, int>();
+            this.description = new List<Move>();
         }
 
         public Moves(Move move)
         {
+            this.description = new List<Move> { move };
             switch (move)
             {
                 // Normal moves - basic - hardcoded
@@ -617,6 +691,7 @@ namespace RCSv2
             this.corners = GetInverse(this.corners);
             this.edges = GetInverse(this.edges);
             this.centers = GetInverse(this.centers);
+            this.description.Reverse();
         }
 
         private static Dictionary<int, int> CombineMoves(int total_count, Dictionary<int, int> m1, Dictionary<int, int> m2)
@@ -655,6 +730,7 @@ namespace RCSv2
             this.corners = CombineMoves(24, this.corners, m.corners);
             this.edges = CombineMoves(24, this.edges, m.edges);
             this.centers = CombineMoves(6, this.centers, m.centers);
+            this.description.Add(move);
         }
     }
 }
