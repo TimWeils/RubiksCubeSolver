@@ -1,0 +1,21 @@
+﻿X L2 D2 Lp Up L D2 Lp U Lp
+Xp L2 D2 L U Lp D2 L Up L
+Xp L2 D2 L U Lp D2 L Up L
+R2 U Rp U Rp Up R Up R2 Up D Rp U R Dp
+Rp Up R U Dp R2 U Rp U R Up R Up R2 D
+R2 Up R Up R U Rp U R2 U Dp R Up Rp D
+R U Rp Up D R2 Up R Up Rp U Rp U R2 Dp
+X R2 F R Fp R U2 Rwp U Rw U2
+R U Rp Fp R U Rp Up Rp F R2 Up Rp
+R Up Rp Up R U R D Rp Up R Dp Rp U2 Rp
+R2 F R U R Up Rp Fp R U2 Rp U2 R
+R U Rp Up Rp F R2 Up Rp Up R U Rp Fp
+Xp Lp U L Dp Lp Up L D Lp Up L Dp Lp U L D
+R U Rp U R U Rp Fp R U Rp Up Rp F R2 Up Rp U2 R Up Rp
+Rp U R Up Rp Fp Up F R U Rp F Rp Fp R Up R
+Rp U Rp Up Y Rp Fp R2 Up Rp U Rp F R F
+F R Up Rp Up R U Rp Fp R U Rp Up Rp F R Fp
+M2 U M2 U2 M2 U M2
+M2 U M U2 Mp U M2
+M2 Up M U2 Mp Up M2
+Mp U M2 U M2 U Mp U2 M2

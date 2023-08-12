@@ -1,0 +1,57 @@
+﻿R U2 R2 F R Fp U2 Rp F R Fp
+Rw U Rwp U2 Rw U2 Rp U2 R Up Rwp
+Rwp R2 U Rp U Rw U2 Rwp U Mp
+M Up Rw U2 Rwp Up R Up Rp Mp
+Lwp U2 L U Lp U Lw
+Rw U2 Rp Up R Up Rwp
+Rw U Rp U R U2 Rwp
+Lwp Up L Up Lp U2 Lw
+R U Rp Up Rp F R2 U Rp Up Fp
+R U Rp U Rp F R Fp R U2 Rp
+Rw U Rp U Rp F R Fp R U2 Rwp
+Mp Rp Up R Up Rp U2 R Up R Rwp
+F U R Up R2 Fp R U R Up Rp
+Rp F R U Rp Fp R F Up Fp
+Lwp Up Lw Lp Up L U Lwp U Lw
+Rw U Rwp R U Rp Up Rw Up Rwp
+F Rp Fp R2 Rwp U R Up Rp Up Mp
+Rw U Rp U R U2 Rw2 Up R Up Rp U2 Rw
+Rwp R U R U Rp Up Mp Rp F R Fp
+Rw U Rp Up M2 U R Up Rp Up Mp
+R U2 Rp Up R U Rp Up R Up Rp
+R U2 R2 Up R2 Up R2 U2 R
+R2 Dp R U2 Rp D R U2 R
+Rw U Rp Up Rwp F R Fp
+Fp Rw U Rp Up Rwp F R
+R U2 Rp Up R Up Rp
+R U Rp U R U2 Rp
+Rw U Rp Up Rwp R U R Up Rp
+R U Rp Up R Up Rp Fp Up F R U Rp
+F Rp F R2 Up Rp Up R U Rp F2
+Rp Up F U R Up Rp Fp R
+L U Fp Up Lp U L F Lp
+R U Rp Up Rp F R Fp
+R U R2 Up Rp F R U R Up Fp
+R U2 R2 F R Fp R U2 Rp
+Lp Up L Up Lp U L U L Fp Lp F
+F Rp Fp R U R Up Rp
+R U Rp U R Up Rp Up Rp F R Fp
+L Fp Lp Up L U F Up Lp
+Rp F R U Rp Up Fp U R
+R U Rp U R U2 Rp F R U Rp Up Fp
+Rp Up R Up Rp U2 R F R U Rp Up Fp
+Fp Up Lp U L F
+F U R Up Rp Fp
+F R U Rp Up Fp
+Rp Up Rp F R Fp U R
+Rp Up Rp F R Fp Rp F R Fp U R
+F R U Rp Up R U Rp Up Fp
+Rw Up Rw2 U Rw2 U Rw2 Up Rw
+Rwp U Rw2 Up Rw2 Up Rw2 U Rwp
+F U R Up Rp U R Up Rp Fp
+R U Rp U R Up B Up Bp Rp
+Lwp U2 L U Lp Up L U Lp U Lw
+Rw U2 Rp Up R U Rp Up R Up Rwp
+Rp F R U R Up R2 Fp R2 Up Rp U R U Rp
+Rwp Up Rw Up Rp U R Up Rp U R Rwp U Rw
+R U Rp Up Mp U R Up Rwp
