@@ -9,10 +9,10 @@ namespace RCSv2
 {
     static class Reader
     {
-        static public Dictionary<Tuple<PCube, PCube>, Moves> OpenAndProcessFile(string fileName)
+        static public Dictionary<PCube, Moves> OpenAndProcessFile(string fileName)
         {
             // Not final data structure!
-            Dictionary<Tuple<PCube, PCube>, Moves> movesDatabase = new Dictionary<Tuple<PCube, PCube>, Moves>();
+            Dictionary<PCube, Moves> movesDatabase = new Dictionary<PCube, Moves>();
 
             StreamReader file = File.OpenText(fileName);
             while (!file.EndOfStream)
@@ -23,7 +23,7 @@ namespace RCSv2
             return movesDatabase;
         }
 
-        static void ProcessMoves(string movesLine, Dictionary<Tuple<PCube, PCube>, Moves> movesDatabase)
+        static void ProcessMoves(string movesLine, Dictionary<PCube, Moves> movesDatabase)
         {
             // Process line into moves
             Moves moves = new Moves();
@@ -50,7 +50,7 @@ namespace RCSv2
             // Invert moves back into original sequence before saving
             moves.Invert();
             // Save moves to some table which is like [[start_cube, end_cube], moves]
-            movesDatabase.Add(new Tuple<PCube, PCube>(cube, new PCube()), moves);
+            movesDatabase.Add(cube, moves);
         }
     }
 }
